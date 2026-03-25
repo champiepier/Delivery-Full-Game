@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://24a7uskfebia"]
+
+[ext_resource type="Script" uid="uid://cowgqnpb52i8i" path="res://Scripts/pause_menu.gd" id="1_1och7"]
+[ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="1_emv3i"]
+[ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="2_k0w1u"]
+[ext_resource type="PackedScene" uid="uid://d16tvu2fbgftn" path="res://Scenes/controls_setting.tscn" id="4_bpi0q"]
+
+[node name="Pause Menu" type="Control" unique_id=1437095832]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1och7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=66125005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1062798639]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=64036014]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=2068418768]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PausedLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1444992823]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_emv3i")
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=440072509]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="DebugMode" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=600718551]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/DebugMode" unique_id=887327809]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k0w1u")
+text = "Debug Mode"
+horizontal_alignment = 1
+
+[node name="DebugButton" type="CheckButton" parent="MarginContainer/MarginContainer/VBoxContainer/DebugMode" unique_id=937535750]
+layout_mode = 2
+icon_alignment = 1
+
+[node name="Resume" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1246896182]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k0w1u")
+text = "Resume"
+
+[node name="Controls" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=209864327]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k0w1u")
+text = "Controls"
+
+[node name="Quit" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=394050633]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k0w1u")
+text = "Quit"
+
+[node name="ControlsSetting" parent="MarginContainer" unique_id=1180485505 instance=ExtResource("4_bpi0q")]
+visible = false
+layout_mode = 2
+
+[connection signal="toggled" from="MarginContainer/MarginContainer/VBoxContainer/DebugMode/DebugButton" to="." method="_on_debug_button_toggled"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

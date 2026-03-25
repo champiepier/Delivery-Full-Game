@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://7h0ddl8wmjxc"]
+
+[ext_resource type="Script" uid="uid://veyqwvs7tf26" path="res://Scripts/food_crate.gd" id="1_7nl3j"]
+[ext_resource type="FontFile" uid="uid://d315o16sbja8r" path="res://Assets/Fonts/Caveat/Caveat-SemiBold.ttf" id="1_8vxgc"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b7hon"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b7hon"]
+data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5)
+
+[node name="FoodCrate" type="StaticBody3D" unique_id=1484742709]
+script = ExtResource("1_7nl3j")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1842612777]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1258431982]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.527083)
+texture = SubResource("ViewportTexture_b7hon")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=814973967]
+transparent_bg = true
+size = Vector2i(38, 38)
+
+[node name="TypeLabel" type="Label" parent="Sprite3D/SubViewport" unique_id=723520048]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_8vxgc")
+text = "Food"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="." unique_id=693723030]
+shape = SubResource("ConcavePolygonShape3D_b7hon")
+
+[node name="RotTimer" type="Timer" parent="." unique_id=600470002]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="RotTimer" to="." method="_on_rot_timer_timeout"]

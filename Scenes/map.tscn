@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://joeiubia0k07"]
+
+[ext_resource type="Script" uid="uid://cj8757rhiavu" path="res://Scripts/map.gd" id="1_26yhd"]
+[ext_resource type="Texture2D" uid="uid://dsxvjlrlp4kox" path="res://Assets/Art/map.png" id="1_ci6au"]
+[ext_resource type="Texture2D" uid="uid://ckjkr4jlaw256" path="res://Assets/Art/ShipMarker.png" id="3_myvm1"]
+[ext_resource type="Texture2D" uid="uid://sf3p184csgfi" path="res://Assets/Art/DesMarker.png" id="4_q0mm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_myvm1"]
+
+[node name="Map" type="Control" unique_id=192190538]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.00012207031
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_26yhd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2113514718]
+material = SubResource("ShaderMaterial_myvm1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.999695
+offset_right = 107.00018
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(553.9997, 85)
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=2140161965]
+layout_mode = 2
+texture = ExtResource("1_ci6au")
+
+[node name="Path" type="Line2D" parent="MarginContainer" unique_id=1388186802]
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(0, 0, 1, 1)
+
+[node name="Cur" type="Sprite2D" parent="MarginContainer" unique_id=1907649069]
+texture = ExtResource("3_myvm1")
+
+[node name="Des" type="Sprite2D" parent="MarginContainer" unique_id=1251979395]
+texture = ExtResource("4_q0mm3")

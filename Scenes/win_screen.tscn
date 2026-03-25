@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b72uk57esj4bj"]
+
+[ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="1_a00f1"]
+[ext_resource type="Script" uid="uid://bcx3rke6w0a5h" path="res://Scripts/win_screen.gd" id="1_bwc64"]
+[ext_resource type="Texture2D" uid="uid://cguv2byssi70d" path="res://Assets/Art/DELIVERY end screen..png" id="2_85imr"]
+[ext_resource type="FontFile" uid="uid://wgh10twbengh" path="res://Assets/Fonts/Red Rose/RedRose-Light.ttf" id="2_awi1s"]
+[ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="3_awi1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwc64"]
+bg_color = Color(0, 0, 0, 0.7294118)
+
+[node name="WinScreen" type="Control" unique_id=1465217266]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bwc64")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1031297724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1075934514]
+layout_mode = 2
+texture = ExtResource("2_85imr")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=140810176]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bwc64")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1698391459]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=2124331892]
+layout_mode = 2
+
+[node name="YouWin" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=252770338]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_a00f1")
+theme_override_font_sizes/font_size = 56
+text = "You Win?"
+horizontal_alignment = 1
+
+[node name="MoreStuff" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=3836298]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awi1s")
+theme_override_font_sizes/font_size = 18
+text = "Well, this game is incomplete. The creator just needed a 'win' state for the game.
+
+I guess it should say something like:
+\"You delivered the resources sucsessfully!\"
+
+Hopefully this game will get better, as this is really less than even the pre-alpha release. 
+
+:)
+ "
+autowrap_mode = 2
+
+[node name="MainMenu" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1498575709]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_awi1s")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bkh6mnd3ayl5w"]
+
+[ext_resource type="Texture2D" uid="uid://bfro15bfpkjlv" path="res://Assets/Art/Vignette-Transparent-1323519034.png" id="1_mk5ek"]
+
+[node name="Vignette" type="Control" unique_id=1232605608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=922246457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoOxygenVignette" type="TextureRect" parent="MarginContainer" unique_id=1164420636]
+layout_mode = 2
+texture = ExtResource("1_mk5ek")
+expand_mode = 2

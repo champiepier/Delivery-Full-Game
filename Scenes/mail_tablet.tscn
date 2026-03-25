@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://c2vle65x32yyk"]
+
+[ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="1_8n6yg"]
+[ext_resource type="Texture2D" uid="uid://bkqsri33vgexr" path="res://Assets/Art/Prototype Textures/Green/texture_11.png" id="1_rnwfd"]
+[ext_resource type="FontFile" uid="uid://bsq2f8c3lu1ks" path="res://Assets/Fonts/Red Rose/RedRose-Bold.ttf" id="3_l84dq"]
+[ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="4_bb1sd"]
+
+[sub_resource type="Theme" id="Theme_scjg1"]
+default_font = ExtResource("1_8n6yg")
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_8n6yg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n6yg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb1sd"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scjg1"]
+bg_color = Color(0.67058825, 0.49411765, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l84dq"]
+bg_color = Color(0, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1ffh"]
+
+[node name="MailTablet" type="Control" unique_id=62762950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_scjg1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=203483792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=2041270994]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8n6yg")
+
+[node name="ProductNameContainer" type="MarginContainer" parent="MarginContainer" unique_id=553009633]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 392
+
+[node name="ProductNameLabel" type="RichTextLabel" parent="MarginContainer/ProductNameContainer" unique_id=1863318388]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_bb1sd")
+theme_override_font_sizes/normal_font_size = 32
+text = "Product Name: Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProductImageContrainer" type="MarginContainer" parent="MarginContainer" unique_id=1906020160]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 160
+
+[node name="ProductImage" type="TextureRect" parent="MarginContainer/ProductImageContrainer" unique_id=285503655]
+layout_mode = 2
+texture = ExtResource("1_rnwfd")
+expand_mode = 1
+
+[node name="OrderProductButtonContainer" type="MarginContainer" parent="MarginContainer" unique_id=1625519993]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 396
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="OrderButton" type="Button" parent="MarginContainer/OrderProductButtonContainer" unique_id=756211873]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_l84dq")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bb1sd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_scjg1")
+text = "Retrieve From Storage!"
+
+[node name="ProductButtons" type="MarginContainer" parent="MarginContainer" unique_id=131429784]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 320
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 60
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ProductButtons" unique_id=2008974641]
+layout_mode = 2
+columns = 2
+
+[node name="FuelButton" type="Button" parent="MarginContainer/ProductButtons/GridContainer" unique_id=1933176818]
+custom_minimum_size = Vector2(174, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_l84dq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_e1ffh")
+text = "Fuel"
+
+[node name="ShaftButton" type="Button" parent="MarginContainer/ProductButtons/GridContainer" unique_id=612048180]
+custom_minimum_size = Vector2(174, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_l84dq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_e1ffh")
+text = "Shaft"
+
+[node name="Stay-FreshButton" type="Button" parent="MarginContainer/ProductButtons/GridContainer" unique_id=1048527377]
+custom_minimum_size = Vector2(174, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_l84dq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_e1ffh")
+text = "Stay-Fresh™"
+
+[node name="FlashlightButton" type="Button" parent="MarginContainer/ProductButtons/GridContainer" unique_id=1381408395]
+custom_minimum_size = Vector2(174, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_l84dq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_e1ffh")
+text = "Flashlight"

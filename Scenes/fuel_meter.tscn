@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b3rbqpende37f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sajhb"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3o5l"]
+bg_color = Color(0.3927983, 0.13374472, 0.0946173, 1)
+
+[node name="FuelMeter" type="Control" unique_id=1840411618]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=357830083]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer" unique_id=1628595694]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_sajhb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r3o5l")
+max_value = 10.0
+value = 5.0

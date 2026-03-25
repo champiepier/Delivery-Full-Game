@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c200xapbegjm6"]
+
+[ext_resource type="Texture2D" uid="uid://of0xfv162cpk" path="res://Assets/Art/gameshot.png" id="1_ce3w2"]
+[ext_resource type="Script" uid="uid://o2bimn83cquf" path="res://Scripts/main_menu.gd" id="1_n45e2"]
+[ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="2_ce3w2"]
+[ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="3_n45e2"]
+[ext_resource type="PackedScene" uid="uid://d16tvu2fbgftn" path="res://Scenes/controls_setting.tscn" id="5_n45e2"]
+
+[node name="MainMenu" type="Control" unique_id=1673029380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n45e2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=537171378]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=287805183]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=520917223]
+layout_mode = 2
+texture = ExtResource("1_ce3w2")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=742836325]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 275
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=549086873]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=952187837]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_n45e2")
+theme_override_font_sizes/normal_font_size = 54
+bbcode_enabled = true
+text = "[shake rate=5 level=5]Delivery[/shake]"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=554441262]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Play" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1812390548]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ce3w2")
+text = "Play"
+
+[node name="Settings" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1730872152]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_n45e2")
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2033082920]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ce3w2")
+text = "Quit"
+
+[node name="ControlsSetting" parent="MarginContainer" unique_id=1180485505 instance=ExtResource("5_n45e2")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

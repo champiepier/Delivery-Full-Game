@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://4vuway5ti3hv"]
+
+[ext_resource type="Script" uid="uid://2oijfh3pca86" path="res://Scripts/energy_left_meter.gd" id="1_f8hse"]
+[ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="2_w8khn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmg2s"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8hse"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="EnergyLeftMeter" type="Control" unique_id=5197800]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8hse")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=478952416]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=196952798]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=903681153]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w8khn")
+theme_override_font_sizes/font_size = 48
+text = "Power Left:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerLeft" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=929119307]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_wmg2s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f8hse")
+
+[node name="MeterGoDownTimer" type="Timer" parent="." unique_id=1715394714]
+autostart = true
+
+[connection signal="timeout" from="MeterGoDownTimer" to="." method="_on_meter_go_down_timer_timeout"]

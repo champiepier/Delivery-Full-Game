@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://d3umgfiyfd7po"]
+
+[ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="1_0ekye"]
+[ext_resource type="Script" uid="uid://b7hc6cuohk1oj" path="res://Scripts/delivery_num.gd" id="1_f1c53"]
+[ext_resource type="FontFile" uid="uid://bsq2f8c3lu1ks" path="res://Assets/Fonts/Red Rose/RedRose-Bold.ttf" id="2_f1c53"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3s41d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_f1c53"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/MarginContainer/DeliveryNumLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3s41d"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/MarginContainer/DeliveryNumLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bq7xt"]
+_data = {
+&"RESET": SubResource("Animation_f1c53"),
+&"fade_out": SubResource("Animation_3s41d")
+}
+
+[node name="DeliveryNum" type="Control" unique_id=1183865831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1c53")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1555457103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1519978772]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3s41d")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1619569891]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="DeliveryNumLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer" unique_id=972788608]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_0ekye")
+theme_override_fonts/bold_font = ExtResource("2_f1c53")
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "Delivery: [b]delivery#[/b]"
+horizontal_alignment = 1
+
+[node name="StayOnScreenTime" type="Timer" parent="." unique_id=2104048855]
+wait_time = 3.0
+autostart = true
+
+[node name="anims" type="AnimationPlayer" parent="." unique_id=1992858263]
+libraries/ = SubResource("AnimationLibrary_bq7xt")
+
+[connection signal="timeout" from="StayOnScreenTime" to="." method="_on_stay_on_screen_time_timeout"]
+[connection signal="animation_finished" from="anims" to="." method="_on_anims_animation_finished"]
