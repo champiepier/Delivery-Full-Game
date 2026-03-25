@@ -1,7 +1,7 @@
 extends Control
 
 @onready var progress_bar: ProgressBar = $MarginContainer2/MarginContainer/VBoxContainer/ProgressBar
-@export var next_scene_path: String = "res://Scenes/delivery_num.tscn"
+@export var next_scene_path: String = "res://UI/delivery_num.tscn"
 var progress: Array[float] = []
 
 var stop_process: bool = false

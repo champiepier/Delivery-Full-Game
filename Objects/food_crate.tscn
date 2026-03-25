@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7h0ddl8wmjxc"]
 
-[ext_resource type="Script" uid="uid://veyqwvs7tf26" path="res://Scripts/food_crate.gd" id="1_7nl3j"]
+[ext_resource type="Script" uid="uid://veyqwvs7tf26" path="res://Objects/food_crate.gd" id="1_7nl3j"]
 [ext_resource type="FontFile" uid="uid://d315o16sbja8r" path="res://Assets/Fonts/Caveat/Caveat-SemiBold.ttf" id="1_8vxgc"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b7hon"]

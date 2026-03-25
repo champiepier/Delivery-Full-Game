@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dujinogdu7ufy"]
 
-[ext_resource type="Script" uid="uid://dwqy2gqstqq4g" path="res://Scripts/crosshair.gd" id="1_aia6a"]
+[ext_resource type="Script" uid="uid://dwqy2gqstqq4g" path="res://Player/crosshair.gd" id="1_aia6a"]
 [ext_resource type="Texture2D" uid="uid://c6q1wcoqifkha" path="res://Assets/Art/Crosshair/crosshairNORMAL.png" id="1_aqujx"]
 [ext_resource type="Texture2D" uid="uid://f7s34w7rgkh1" path="res://Assets/Art/Crosshair/crosshairCIRC.png" id="2_otoyv"]
 

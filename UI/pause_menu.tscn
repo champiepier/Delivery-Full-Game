@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://24a7uskfebia"]
 
-[ext_resource type="Script" uid="uid://cowgqnpb52i8i" path="res://Scripts/pause_menu.gd" id="1_1och7"]
+[ext_resource type="Script" uid="uid://cowgqnpb52i8i" path="res://UI/pause_menu.gd" id="1_1och7"]
 [ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="1_emv3i"]
 [ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="2_k0w1u"]
-[ext_resource type="PackedScene" uid="uid://d16tvu2fbgftn" path="res://Scenes/controls_setting.tscn" id="4_bpi0q"]
+[ext_resource type="PackedScene" uid="uid://d16tvu2fbgftn" path="res://UI/controls_setting.tscn" id="4_bpi0q"]
 
 [node name="Pause Menu" type="Control" unique_id=1437095832]
 process_mode = 3

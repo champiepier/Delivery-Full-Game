@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b72uk57esj4bj"]
 
 [ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="1_a00f1"]
-[ext_resource type="Script" uid="uid://bcx3rke6w0a5h" path="res://Scripts/win_screen.gd" id="1_bwc64"]
+[ext_resource type="Script" uid="uid://bcx3rke6w0a5h" path="res://UI/win_screen.gd" id="1_bwc64"]
 [ext_resource type="Texture2D" uid="uid://cguv2byssi70d" path="res://Assets/Art/DELIVERY end screen..png" id="2_85imr"]
 [ext_resource type="FontFile" uid="uid://wgh10twbengh" path="res://Assets/Fonts/Red Rose/RedRose-Light.ttf" id="2_awi1s"]
 [ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="3_awi1s"]

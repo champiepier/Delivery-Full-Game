@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlu5apum1aksy"]
 
-[ext_resource type="Script" uid="uid://t7t8muu72q0v" path="res://Scripts/oxygen_bar.gd" id="1_aurtf"]
+[ext_resource type="Script" uid="uid://t7t8muu72q0v" path="res://UI/oxygen_bar.gd" id="1_aurtf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x6p0"]
 bg_color = Color(0.13333334, 0.13333334, 0.13333334, 0.78431374)

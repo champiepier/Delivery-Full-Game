@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d3umgfiyfd7po"]
 
-[ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="1_0ekye"]
-[ext_resource type="Script" uid="uid://b7hc6cuohk1oj" path="res://Scripts/delivery_num.gd" id="1_f1c53"]
-[ext_resource type="FontFile" uid="uid://bsq2f8c3lu1ks" path="res://Assets/Fonts/Red Rose/RedRose-Bold.ttf" id="2_f1c53"]
+[ext_resource type="Script" uid="uid://b7hc6cuohk1oj" path="res://UI/delivery_num.gd" id="1_deyhd"]
+[ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="2_eyl2v"]
+[ext_resource type="FontFile" uid="uid://bsq2f8c3lu1ks" path="res://Assets/Fonts/Red Rose/RedRose-Bold.ttf" id="3_ascxh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3s41d"]
 bg_color = Color(0, 0, 0, 1)
@@ -50,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_f1c53")
+script = ExtResource("1_deyhd")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1555457103]
 layout_mode = 1
@@ -73,8 +73,8 @@ theme_override_constants/margin_bottom = 64
 
 [node name="DeliveryNumLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer" unique_id=972788608]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_0ekye")
-theme_override_fonts/bold_font = ExtResource("2_f1c53")
+theme_override_fonts/normal_font = ExtResource("2_eyl2v")
+theme_override_fonts/bold_font = ExtResource("3_ascxh")
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true

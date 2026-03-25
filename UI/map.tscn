@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://joeiubia0k07"]
 
-[ext_resource type="Script" uid="uid://cj8757rhiavu" path="res://Scripts/map.gd" id="1_26yhd"]
+[ext_resource type="Script" uid="uid://cj8757rhiavu" path="res://UI/map.gd" id="1_26yhd"]
 [ext_resource type="Texture2D" uid="uid://dsxvjlrlp4kox" path="res://Assets/Art/map.png" id="1_ci6au"]
 [ext_resource type="Texture2D" uid="uid://ckjkr4jlaw256" path="res://Assets/Art/ShipMarker.png" id="3_myvm1"]
 [ext_resource type="Texture2D" uid="uid://sf3p184csgfi" path="res://Assets/Art/DesMarker.png" id="4_q0mm3"]

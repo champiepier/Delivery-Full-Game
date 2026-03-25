@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4vuway5ti3hv"]
 
-[ext_resource type="Script" uid="uid://2oijfh3pca86" path="res://Scripts/energy_left_meter.gd" id="1_f8hse"]
+[ext_resource type="Script" uid="uid://2oijfh3pca86" path="res://UI/energy_left_meter.gd" id="1_f8hse"]
 [ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="2_w8khn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmg2s"]

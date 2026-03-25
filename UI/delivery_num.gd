@@ -14,4 +14,4 @@ func _on_stay_on_screen_time_timeout() -> void:
 
 func _on_anims_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_out":
-		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+		get_tree().change_scene_to_file("res://Misc/main.tscn")

@@ -65,7 +65,7 @@ func screenshot():
 	$"../GUI".show()
 		
 func destination_reached():
-	get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
+	get_tree().change_scene_to_file("res://UI/win_screen.tscn")
 
 func _on_des_timer_timeout() -> void:
 	destination_reached()
@@ -139,4 +139,4 @@ func no_oxygen_event():
 	$"../GUI/Vignette".show()
 	world_environment.set_adjustment_color_correction(crazy_color_texture)
 	await get_tree().create_timer(15.0).timeout
-	get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
+	get_tree().change_scene_to_file("res://UI/lose_screen.tscn")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2eu0mdheijhj"]
 
-[ext_resource type="Script" uid="uid://cc65jhj4p1gds" path="res://Scripts/how_2_play.gd" id="1_jp74o"]
+[ext_resource type="Script" uid="uid://cc65jhj4p1gds" path="res://UI/how_2_play.gd" id="1_jp74o"]
 [ext_resource type="Texture2D" uid="uid://bc08b0w6a8l66" path="res://Assets/Art/HowToPlayNoteReal.png" id="2_cmt8w"]
 
 [sub_resource type="Animation" id="Animation_t2rag"]

@@ -24,7 +24,7 @@ config/icon="uid://ckjkr4jlaw256"
 
 [autoload]
 
-Global="*res://Scripts/singltons/Global.gd"
+Global="*res://Misc/singletons/Global.gd"
 
 [display]
 

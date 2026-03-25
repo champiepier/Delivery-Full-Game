@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d16tvu2fbgftn"]
 
-[ext_resource type="Script" uid="uid://04fiu3b773xf" path="res://Scripts/controls_setting.gd" id="1_7fiu4"]
+[ext_resource type="Script" uid="uid://04fiu3b773xf" path="res://UI/controls_setting.gd" id="1_7fiu4"]
 [ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="1_1810i"]
 
 [node name="ControlsSetting" type="Control" unique_id=1180485505]

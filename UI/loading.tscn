@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy3tentn1ex8j"]
 
 [ext_resource type="FontFile" uid="uid://bsq2f8c3lu1ks" path="res://Assets/Fonts/Red Rose/RedRose-Bold.ttf" id="1_fim2r"]
-[ext_resource type="Script" uid="uid://bcsu72qwmo3a" path="res://Scripts/loading.gd" id="1_k66n3"]
+[ext_resource type="Script" uid="uid://bcsu72qwmo3a" path="res://UI/loading.gd" id="1_k66n3"]
 [ext_resource type="FontFile" uid="uid://b4ip32qa1elcn" path="res://Assets/Fonts/Red Rose/RedRose-SemiBold.ttf" id="2_31xe0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31xe0"]
