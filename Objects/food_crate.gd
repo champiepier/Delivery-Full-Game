@@ -9,7 +9,7 @@ func _ready() -> void:
 	set_random_wait_time()
 	
 func set_random_wait_time():
-	var random_wait_time: int = roundf((randf() * 50) * 4)
+	var random_wait_time: float = roundf((randf() * 50) * 4)
 	random_wait_time = clamp(random_wait_time, 5, 30)
 
 

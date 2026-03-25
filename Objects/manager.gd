@@ -104,7 +104,7 @@ func show_object(obj_name):
 			
 func set_random_lights_timer():
 	randomize()
-	var random_wait_time: int = roundf((randf() * 50) * 4)
+	var random_wait_time: float = roundf((randf() * 50) * 4)
 	random_wait_time = clamp(random_wait_time, 45, 155)
 	lights_timer.wait_time = random_wait_time
 	$"../Objects/PowerBox/PowerLeft/SubViewport/EnergyLeftMeter".reset_energy_level(random_wait_time)
