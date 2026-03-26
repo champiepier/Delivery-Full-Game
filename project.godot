@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Delivery"
 config/version="1.0.0-alpha"
-run/main_scene="uid://c200xapbegjm6"
+run/main_scene="uid://dy3tentn1ex8j"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Delivery-1.0.0-alpha"
 config/features=PackedStringArray("4.6", "Mobile")
