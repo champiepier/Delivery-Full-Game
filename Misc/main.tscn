@@ -558,7 +558,7 @@ libraries/ = SubResource("AnimationLibrary_fdnlq")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328236260]
 environment = SubResource("Environment_mqv1q")
 
-[node name="ship" parent="." unique_id=1258070834 instance=ExtResource("21_rcrf8")]
+[node name="ship" parent="." unique_id=258013576 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
 [connection signal="timeout" from="Manager/DesTimer" to="Manager" method="_on_des_timer_timeout"]
