@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 @onready var camera_pivot_og_position = $CameraPivot.position.y
 
-var speed = 5.0
+var speed = 4.0
 var crouch_speed = 2.5
 const JUMP_VELOCITY = 4.5
 

@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://4vuway5ti3hv" path="res://UI/energy_left_meter.tscn" id="18_cfd4y"]
 [ext_resource type="PackedScene" uid="uid://csvl5th81mvtq" path="res://Player/player.tscn" id="19_qj47t"]
 [ext_resource type="Script" uid="uid://c6rxhcn1gl1h8" path="res://Player/camera_3d.gd" id="20_c7p1l"]
-[ext_resource type="Environment" uid="uid://b0kal7e6gka8y" path="res://Misc/Environments/dark1.tres" id="20_rcrf8"]
 [ext_resource type="PackedScene" uid="uid://dcvn88t034et0" path="res://Assets/ship.blend" id="21_rcrf8"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jjvhh"]
@@ -269,6 +268,8 @@ _data = {
 &"close_mail_door": SubResource("Animation_fevyy"),
 &"open_mail_door": SubResource("Animation_hibaj")
 }
+
+[sub_resource type="Environment" id="Environment_mqv1q"]
 
 [node name="Main" type="Node3D" unique_id=815334071]
 
@@ -555,9 +556,9 @@ script = ExtResource("20_c7p1l")
 libraries/ = SubResource("AnimationLibrary_fdnlq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328236260]
-environment = ExtResource("20_rcrf8")
+environment = SubResource("Environment_mqv1q")
 
-[node name="ship" parent="." unique_id=1205228844 instance=ExtResource("21_rcrf8")]
+[node name="ship" parent="." unique_id=1258070834 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
 [connection signal="timeout" from="Manager/DesTimer" to="Manager" method="_on_des_timer_timeout"]
