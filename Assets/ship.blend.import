@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "SteelFloor": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "res://Assets/textures/steelfloor.tres",
 "use_external/path": "uid://bbf748fxlx0yi"
 }
