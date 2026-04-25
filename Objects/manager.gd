@@ -72,6 +72,8 @@ func _on_des_timer_timeout() -> void:
 	
 func on_interact():
 	var int_obj = player.find_crosshair_col()
+	if int_obj.name == "StaticBody3D":
+		int_obj = int_obj.get_parent()
 	if int_obj != null and !int_obj.name in ["Walls", "Ceiling", "Floors"]:
 		$"../GUI/InteractingObjName".text = str(int_obj.name)
 		if int_obj.is_in_group("CanLookAt"):
@@ -92,6 +94,8 @@ func on_interact():
 				anims.play("open_mail_door")
 				await get_tree().create_timer(5.0).timeout
 				anims.play("close_mail_door")
+			"KeyPad":
+				anims.play("DoorsShut")
 			_:
 				$"../GUI/InteractingObjName".text = "#null_obj"
 		
