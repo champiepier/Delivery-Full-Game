@@ -24,6 +24,7 @@ func _ready() -> void:
 	$"../GUI/Pause Menu".hide()
 	$"../GUI/InteractingObjName".hide()
 	lights_timer.start()
+	anims.play("DoorsShut")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -95,7 +96,7 @@ func on_interact():
 				await get_tree().create_timer(5.0).timeout
 				anims.play("close_mail_door")
 			"KeyPad":
-				anims.play("DoorsShut")
+				open_doors()
 			_:
 				$"../GUI/InteractingObjName".text = "#null_obj"
 		
@@ -121,6 +122,11 @@ func turn_on_lights():
 	$"../Objects/MainLight".show()
 	$"../Objects/SubLights".show()
 	Global.power_out = false
+	
+func open_doors():
+	anims.play("DoorOpen")
+	await get_tree().create_timer(7.5).timeout
+	anims.play("DoorsShut")
 
 func _on_anims_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Lights Flicker":

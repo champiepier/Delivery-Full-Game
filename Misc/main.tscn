@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://4vuway5ti3hv" path="res://UI/energy_left_meter.tscn" id="18_cfd4y"]
 [ext_resource type="PackedScene" uid="uid://csvl5th81mvtq" path="res://Player/player.tscn" id="19_qj47t"]
 [ext_resource type="Script" uid="uid://c6rxhcn1gl1h8" path="res://Player/camera_3d.gd" id="20_c7p1l"]
+[ext_resource type="AudioStream" uid="uid://dacpsnkturngc" path="res://Assets/freesound_community-large-metal-lift-door-openingwav-14459.mp3" id="21_0nika"]
 [ext_resource type="PackedScene" uid="uid://dcvn88t034et0" path="res://Assets/ship.blend" id="21_rcrf8"]
 [ext_resource type="AudioStream" uid="uid://cotassu0a0q7l" path="res://Assets/freesound_community-metallic-door-shut-98740.mp3" id="21_v6svf"]
 
@@ -99,6 +100,47 @@ viewport_path = NodePath("Objects/PowerBox/PowerLeft/SubViewport")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h1bgf"]
 data = PackedVector3Array(-0.3535534, -1, -0.35355335, -0.5, -1, -4.371139e-08, 0, -1, 0, -0.5, -1, -4.371139e-08, -0.3535534, -1, -0.35355335, -0.3535534, 1, -0.35355335, 5.9624403e-09, -1, -0.5, -0.3535534, -1, -0.35355335, 0, -1, 0, -0.3535534, -1, -0.35355335, 5.9624403e-09, -1, -0.5, 5.9624403e-09, 1, -0.5, -0.5, -1, -4.371139e-08, -0.35355338, -1, 0.35355338, 0, -1, 0, -0.35355338, -1, 0.35355338, -0.5, -1, -4.371139e-08, -0.5, 1, -4.371139e-08, -0.35355338, -1, 0.35355338, -2.1855694e-08, -1, 0.5, 0, -1, 0, -2.1855694e-08, -1, 0.5, -0.35355338, -1, 0.35355338, -0.35355338, 1, 0.35355338, -0.3535534, 1, -0.35355335, -0.5, 1, -4.371139e-08, -0.5, -1, -4.371139e-08, -0.5, 1, -4.371139e-08, -0.3535534, 1, -0.35355335, 0, 1, 0, 5.9624403e-09, 1, -0.5, -0.3535534, 1, -0.35355335, -0.3535534, -1, -0.35355335, -0.3535534, 1, -0.35355335, 5.9624403e-09, 1, -0.5, 0, 1, 0, -0.5, 1, -4.371139e-08, -0.35355338, 1, 0.35355338, -0.35355338, -1, 0.35355338, -0.35355338, 1, 0.35355338, -0.5, 1, -4.371139e-08, 0, 1, 0, -0.35355338, 1, 0.35355338, -2.1855694e-08, 1, 0.5, -2.1855694e-08, -1, 0.5, -2.1855694e-08, 1, 0.5, -0.35355338, 1, 0.35355338, 0, 1, 0, 0.35355332, -1, -0.35355344, 5.9624403e-09, -1, -0.5, 0, -1, 0, 5.9624403e-09, -1, -0.5, 0.35355332, -1, -0.35355344, 0.35355332, 1, -0.35355344, 0.5, -1, 0, 0.35355332, -1, -0.35355344, 0, -1, 0, 0.35355332, -1, -0.35355344, 0.5, -1, 0, 0.5, 1, 0, -2.1855694e-08, -1, 0.5, 0.35355338, -1, 0.35355338, 0, -1, 0, 0.35355338, -1, 0.35355338, -2.1855694e-08, -1, 0.5, -2.1855694e-08, 1, 0.5, 0.35355338, -1, 0.35355338, 0.5, -1, 0, 0, -1, 0, 0.5, -1, 0, 0.35355338, -1, 0.35355338, 0.35355338, 1, 0.35355338, 0.35355332, 1, -0.35355344, 5.9624403e-09, 1, -0.5, 5.9624403e-09, -1, -0.5, 5.9624403e-09, 1, -0.5, 0.35355332, 1, -0.35355344, 0, 1, 0, 0.5, 1, 0, 0.35355332, 1, -0.35355344, 0.35355332, -1, -0.35355344, 0.35355332, 1, -0.35355344, 0.5, 1, 0, 0, 1, 0, -2.1855694e-08, 1, 0.5, 0.35355338, 1, 0.35355338, 0.35355338, -1, 0.35355338, 0.35355338, 1, 0.35355338, -2.1855694e-08, 1, 0.5, 0, 1, 0, 0.35355338, 1, 0.35355338, 0.5, 1, 0, 0.5, -1, 0, 0.5, 1, 0, 0.35355338, 1, 0.35355338, 0, 1, 0)
+
+[sub_resource type="Animation" id="Animation_hnp7j"]
+resource_name = "DoorOpen"
+length = 4.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorOpen:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ship/Door2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.1999989, 1, 7.299999), Vector3(2.5, 1, 7.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship/Door1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.1999989, 1, 7.299999), Vector3(-2.5, 1, 7.3)]
+}
 
 [sub_resource type="Animation" id="Animation_mqv1q"]
 resource_name = "DoorsShut"
@@ -285,6 +327,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DoorOpen:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b3802"]
 resource_name = "TurnValve"
@@ -339,6 +393,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fdnlq"]
 _data = {
+&"DoorOpen": SubResource("Animation_hnp7j"),
 &"DoorsShut": SubResource("Animation_mqv1q"),
 &"Lights Flicker": SubResource("Animation_6iyac"),
 &"PressOxygenButton": SubResource("Animation_k12tt"),
@@ -637,10 +692,16 @@ libraries/ = SubResource("AnimationLibrary_fdnlq")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328236260]
 environment = SubResource("Environment_mqv1q")
 
-[node name="ship" parent="." unique_id=609899222 instance=ExtResource("21_rcrf8")]
+[node name="ship" parent="." unique_id=1973441320 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
-[node name="WindowGlass" parent="ship" index="16" unique_id=1815507132]
+[node name="Door1" parent="ship" index="10" unique_id=1698470019]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, -2.5, 1, 7.3)
+
+[node name="Door2" parent="ship" index="11" unique_id=438470189]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, 2.5, 1, 7.3)
+
+[node name="WindowGlass" parent="ship" index="16" unique_id=1954211674]
 transparency = 0.25
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1367790612]
@@ -650,6 +711,11 @@ omni_range = 10.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=566889385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.343956, 4.6024995, 27.735523)
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=336038347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.54043, 8.179892, 46.82156)
+stream = ExtResource("21_0nika")
+volume_db = 5.0
 
 [node name="DoorSlam" type="AudioStreamPlayer3D" parent="." unique_id=455362561]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.270214, 4.089946, 23.41078)
