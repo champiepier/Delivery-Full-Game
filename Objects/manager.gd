@@ -95,7 +95,7 @@ func on_interact():
 				anims.play("open_mail_door")
 				await get_tree().create_timer(5.0).timeout
 				anims.play("close_mail_door")
-			"KeyPad":
+			"KeyPad", "KeyPad2":
 				open_doors()
 			_:
 				$"../GUI/InteractingObjName".text = "#null_obj"
