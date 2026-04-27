@@ -73,32 +73,33 @@ func _on_des_timer_timeout() -> void:
 	
 func on_interact():
 	var int_obj = player.find_crosshair_col()
-	if int_obj.name == "StaticBody3D":
-		int_obj = int_obj.get_parent()
-	if int_obj != null and !int_obj.name in ["Walls", "Ceiling", "Floors"]:
-		$"../GUI/InteractingObjName".text = str(int_obj.name)
-		if int_obj.is_in_group("CanLookAt"):
-			show_object(int_obj.name)
-		elif "FoodCrate" in int_obj.name:
-			int_obj.reset_food()
-			
-		match int_obj.name:
-			"PowerBox":
-				if lights_timer.time_left <= 0.0:
-					turn_on_lights()
-					set_random_lights_timer()
-			"OxygenButton":
-				anims.play("PressOxygenButton")
-			"GasValve":
-				anims.play("TurnValve")
-			"MailBoxDoor":
-				anims.play("open_mail_door")
-				await get_tree().create_timer(5.0).timeout
-				anims.play("close_mail_door")
-			"KeyPad", "KeyPad2":
-				open_doors()
-			_:
-				$"../GUI/InteractingObjName".text = "#null_obj"
+	if int_obj != null:
+		if int_obj.name == "StaticBody3D":
+			int_obj = int_obj.get_parent()
+		if int_obj != null and !int_obj.name in ["Walls", "Ceiling", "Floors"]:
+			$"../GUI/InteractingObjName".text = str(int_obj.name)
+			if int_obj.is_in_group("CanLookAt"):
+				show_object(int_obj.name)
+			elif "FoodCrate" in int_obj.name:
+				int_obj.reset_food()
+				
+			match int_obj.name:
+				"PowerBox":
+					if lights_timer.time_left <= 0.0:
+						turn_on_lights()
+						set_random_lights_timer()
+				"OxygenButton":
+					anims.play("PressOxygenButton")
+				"GasValve":
+					anims.play("TurnValve")
+				"MailBoxDoor":
+					anims.play("open_mail_door")
+					await get_tree().create_timer(5.0).timeout
+					anims.play("close_mail_door")
+				"KeyPad", "KeyPad2":
+					open_doors()
+				_:
+					$"../GUI/InteractingObjName".text = "#null_obj"
 		
 		
 func show_object(obj_name):
