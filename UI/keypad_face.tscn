@@ -20,9 +20,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_egu67")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqi6l"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxp2s"]
-
 [node name="KeypadFace" type="Control" unique_id=465082892]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,67 +46,6 @@ theme_override_constants/margin_bottom = 62
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pqi6l")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=353907206]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 20
-
-[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer" unique_id=261510121]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hxp2s")
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer" unique_id=1970716694]
-layout_mode = 2
-columns = 3
-
-[node name="Button" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1230402854]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "7"
-
-[node name="Button2" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=834058193]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "8"
-
-[node name="Button3" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=581531498]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "9"
-
-[node name="Button4" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1368776957]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "4"
-
-[node name="Button5" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1060928783]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "5"
-
-[node name="Button6" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=777633686]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "6"
-
-[node name="Button7" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1701436735]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "1"
-
-[node name="Button8" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=424945905]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "2"
-
-[node name="Button9" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2061828343]
-custom_minimum_size = Vector2(76, 76)
-layout_mode = 2
-text = "3"
-
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer" unique_id=1100613059]
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -122,6 +60,71 @@ theme_override_font_sizes/font_size = 32
 text = "KeyMaster60™"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=353907206]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer" unique_id=1970716694]
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1230402854]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "7"
+
+[node name="Button2" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=834058193]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "8"
+
+[node name="Button3" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=581531498]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "9"
+
+[node name="Button4" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1368776957]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1060928783]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=777633686]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1701436735]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "1"
+
+[node name="Button8" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=424945905]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "2"
+
+[node name="Button9" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2061828343]
+z_index = 5
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+text = "3"
 
 [node name="Screenshot20260426104109" type="Sprite2D" parent="." unique_id=1090368256]
 visible = false

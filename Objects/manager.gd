@@ -13,7 +13,6 @@ extends Node
 var normal_color_texture = load("res://Assets/LUTs/normColor.tres")
 var crazy_color_texture = load("res://Assets/LUTs/Cube/16-8bit.png")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.connect("interact", on_interact)
@@ -73,6 +72,7 @@ func _on_des_timer_timeout() -> void:
 	
 func on_interact():
 	var int_obj = player.find_crosshair_col()
+	print(int_obj)
 	if int_obj != null:
 		if int_obj.name == "StaticBody3D":
 			int_obj = int_obj.get_parent()

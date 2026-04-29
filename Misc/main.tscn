@@ -744,16 +744,16 @@ environment = SubResource("Environment_mqv1q")
 [node name="ship" parent="." unique_id=752131330 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
-[node name="Door1" parent="ship" index="10" unique_id=402409295]
+[node name="Door1" parent="ship" index="10" unique_id=514202241]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, -2.5, 1, 7.3)
 
-[node name="Door2" parent="ship" index="11" unique_id=584978970]
+[node name="Door2" parent="ship" index="11" unique_id=524011476]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, 2.5, 1, 7.3)
 
-[node name="WindowGlass" parent="ship" index="16" unique_id=112400532]
+[node name="WindowGlass" parent="ship" index="16" unique_id=2003780473]
 transparency = 0.25
 
-[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(752131330, 118315382) index="1" unique_id=1618365369]
+[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(752131330, 1843708741) index="1" unique_id=1618365369]
 transform = Transform3D(-0.22223341, 0, -3.019916e-08, 0, 0.20475, 0, 3.355631e-08, 0, -0.2, 0, 0, 0.89860916)
 texture = SubResource("ViewportTexture_ov7ob")
 
