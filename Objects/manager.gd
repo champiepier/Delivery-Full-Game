@@ -126,8 +126,6 @@ func turn_on_lights():
 	$"../Objects/SubLights".show()
 	Global.power_out = false
 	
-
-	
 func open_doors():
 	anims.play("DoorOpen")
 	await get_tree().create_timer(7.5).timeout
