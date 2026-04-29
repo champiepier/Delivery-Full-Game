@@ -214,6 +214,22 @@ tracks/1/keys = {
 "values": [true, false, true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_mjpkp"]
+resource_name = "LookAtKeypad"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUI/KeypadFace:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_k12tt"]
 resource_name = "PressOxygenButton"
 length = 0.5
@@ -341,6 +357,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GUI/KeypadFace:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b3802"]
 resource_name = "TurnValve"
@@ -398,6 +426,7 @@ _data = {
 &"DoorOpen": SubResource("Animation_hnp7j"),
 &"DoorsShut": SubResource("Animation_mqv1q"),
 &"Lights Flicker": SubResource("Animation_6iyac"),
+&"LookAtKeypad": SubResource("Animation_mjpkp"),
 &"PressOxygenButton": SubResource("Animation_k12tt"),
 &"RESET": SubResource("Animation_fdnlq"),
 &"TurnValve": SubResource("Animation_b3802"),
@@ -495,6 +524,9 @@ mouse_filter = 2
 [node name="Vignette" parent="GUI" unique_id=1232605608 instance=ExtResource("9_sn4iy")]
 visible = false
 mouse_filter = 2
+
+[node name="KeypadFace" parent="GUI" unique_id=465082892 instance=ExtResource("21_mjpkp")]
+visible = false
 
 [node name="HeldItem" type="CanvasLayer" parent="." unique_id=1954652460]
 
@@ -760,7 +792,7 @@ texture = SubResource("ViewportTexture_ov7ob")
 [node name="SubViewport" type="SubViewport" parent="ship/KeyPad/Sprite3D" unique_id=732518358]
 transparent_bg = true
 
-[node name="KeypadFace" parent="ship/KeyPad/Sprite3D/SubViewport" unique_id=465082892 instance=ExtResource("21_mjpkp")]
+[node name="KeypadFace" parent="ship/KeyPad/Sprite3D/SubViewport" unique_id=37577323 instance=ExtResource("21_mjpkp")]
 
 [node name="KeyPad2" type="MeshInstance3D" parent="ship" unique_id=1085185449]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9871464, 1.415906, 8.899651)

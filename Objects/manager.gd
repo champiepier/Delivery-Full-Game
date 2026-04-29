@@ -97,7 +97,7 @@ func on_interact():
 					await get_tree().create_timer(5.0).timeout
 					anims.play("close_mail_door")
 				"KeyPad", "KeyPad2":
-					open_doors()
+					anims.play("LookAtKeypad")
 				_:
 					$"../GUI/InteractingObjName".text = "#null_obj"
 		
@@ -137,6 +137,8 @@ func _on_anims_animation_finished(anim_name: StringName) -> void:
 		oxygen_meter_timer.start()
 	elif anim_name == "PressOxygenButton":
 		oxygen_bar.increase_oxygen()
+	elif anim_name == "LookAtKeypad":
+		Global.is_looking = true
 		
 func check_oxygen():
 	oxygen_bar.reduce_oxygen()
