@@ -24,6 +24,8 @@ func _ready() -> void:
 	$"../GUI/InteractingObjName".hide()
 	lights_timer.start()
 	anims.play("DoorsShut")
+	Global.correct_code.connect(_on_correct_code)
+	Global.incorrect_code.connect(_on_incorrect_code)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -124,6 +126,8 @@ func turn_on_lights():
 	$"../Objects/SubLights".show()
 	Global.power_out = false
 	
+
+	
 func open_doors():
 	anims.play("DoorOpen")
 	await get_tree().create_timer(7.5).timeout
@@ -153,3 +157,10 @@ func no_oxygen_event():
 	world_environment.set_adjustment_color_correction(crazy_color_texture)
 	await get_tree().create_timer(15.0).timeout
 	get_tree().change_scene_to_file("res://UI/lose_screen.tscn")
+	
+func _on_correct_code():
+	$"../GUI/KeypadFace".hide()
+	open_doors()
+
+func _on_incorrect_code():
+	$"../IncorrectBuzzer".play()

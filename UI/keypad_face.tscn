@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bsq2f8c3lu1ks" path="res://Assets/Fonts/Red Rose/RedRose-Bold.ttf" id="1_5cj3a"]
 [ext_resource type="Texture2D" uid="uid://dc8sfm64esd4e" path="res://Assets/Screenshot 2026-04-26 104109.png" id="1_pqi6l"]
 [ext_resource type="FontFile" uid="uid://d315o16sbja8r" path="res://Assets/Fonts/Caveat/Caveat-SemiBold.ttf" id="2_5ojkd"]
+[ext_resource type="Script" uid="uid://bjaoll5xompif" path="res://UI/keypad.gd" id="2_6g15d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g15d"]
 bg_color = Color(0.13319641, 0.13319641, 0.13319635, 1)
@@ -29,6 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_pccd3")
+script = ExtResource("2_6g15d")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1960646168]
 layout_mode = 1
@@ -131,3 +133,13 @@ visible = false
 position = Vector2(320, 239.99998)
 scale = Vector2(0.59821427, 0.5982144)
 texture = ExtResource("1_pqi6l")
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button9" to="." method="_on_button_9_pressed"]
