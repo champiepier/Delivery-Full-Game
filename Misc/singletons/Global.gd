@@ -12,12 +12,16 @@ var delivery_num: int = 1
 var power_left: float = 65.0
 
 signal interact()
+signal button_press()
 signal correct_code()
 signal incorrect_code()
 		
 func add_code_digit(digit):
 	typed_code += str(digit)
-	print(typed_code)
+	button_press.emit()
+	
+func _ready() -> void:
+	code = generate_4_digit_string()
 	
 func _physics_process(delta: float) -> void:
 		
@@ -29,4 +33,9 @@ func _physics_process(delta: float) -> void:
 			incorrect_code.emit()
 		typed_code = ""
 		
+func generate_4_digit_string() -> String:
+	# Generates an integer between 0 and 9999
+	var random_val = randi() % 10000 
+	# Formats to a 4-digit string with leading zeros
+	return "%04d" % random_val
 		

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc65jhj4p1gds" path="res://UI/how_2_play.gd" id="1_jp74o"]
 [ext_resource type="Texture2D" uid="uid://bc08b0w6a8l66" path="res://Assets/Art/HowToPlayNoteReal.png" id="2_cmt8w"]
+[ext_resource type="FontFile" uid="uid://1e0us5tswax5" path="res://Assets/Fonts/Caveat/Caveat-Bold.ttf" id="3_7g1nw"]
 
 [sub_resource type="Animation" id="Animation_t2rag"]
 length = 0.001
@@ -111,3 +112,33 @@ expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1945079253]
 libraries/ = SubResource("AnimationLibrary_aisuu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1571879721]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 40.0
+offset_right = 225.0
+offset_bottom = 58.0
+color = Color(0.8627451, 0.8392157, 0.7294118, 1)
+
+[node name="CodeLabel" type="Label" parent="." unique_id=42748833]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 421.0
+offset_right = 239.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7g1nw")
+theme_override_font_sizes/font_size = 22
+text = "?????"
+
+[node name="Label" type="Label" parent="." unique_id=2065476324]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 34.0
+offset_right = 237.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7g1nw")
+theme_override_font_sizes/font_size = 22
+text = "2/13/62"

@@ -26,6 +26,7 @@ func _ready() -> void:
 	anims.play("DoorsShut")
 	Global.correct_code.connect(_on_correct_code)
 	Global.incorrect_code.connect(_on_incorrect_code)
+	Global.button_press.connect(_on_button_pressed)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -157,8 +158,12 @@ func no_oxygen_event():
 	get_tree().change_scene_to_file("res://UI/lose_screen.tscn")
 	
 func _on_correct_code():
+	$"../CorrectBuzzer".play()
 	$"../GUI/KeypadFace".hide()
 	open_doors()
 
 func _on_incorrect_code():
 	$"../IncorrectBuzzer".play()
+	
+func _on_button_pressed():
+	$"../ButtonPress".play()
