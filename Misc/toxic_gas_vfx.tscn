@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://jbir7tcr4obv"]
+
+[ext_resource type="Shader" uid="uid://cjyd4psgyep1e" path="res://Assets/Shaders/gas_shader.tres" id="1_gmqev"]
+[ext_resource type="Texture2D" uid="uid://bflv6r52vcka5" path="res://Assets/T_Noise_001R.png" id="2_kl2ij"]
+[ext_resource type="ArrayMesh" uid="uid://cxavb61wqdoqo" path="res://Assets/gas_cloud.obj" id="3_ilsp5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04bj4"]
+render_priority = 0
+shader = ExtResource("1_gmqev")
+shader_parameter/Texture_Scale = Vector2(0.5, 0.5)
+shader_parameter/Dissolver_texture = ExtResource("2_kl2ij")
+
+[sub_resource type="Curve" id="Curve_nne3i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.8539326), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nk356"]
+texture_mode = 1
+curve = SubResource("Curve_nne3i")
+
+[sub_resource type="Gradient" id="Gradient_vp3d6"]
+colors = PackedColorArray(0, 0.06666667, 0, 1, 0, 0.8392157, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oyy7y"]
+gradient = SubResource("Gradient_vp3d6")
+
+[sub_resource type="Curve" id="Curve_o6qub"]
+_data = [Vector2(0, 0.30337083), 0.0, 0.0, 0, 0, Vector2(1, 0.6966293), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gvhvs"]
+curve = SubResource("Curve_o6qub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xgoki"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.5
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(-0.3, 1, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_gvhvs")
+color_ramp = SubResource("GradientTexture1D_oyy7y")
+alpha_curve = SubResource("CurveTexture_nk356")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.6
+
+[node name="ToxicGasVFX" type="GPUParticles3D" unique_id=499658254]
+material_override = SubResource("ShaderMaterial_04bj4")
+amount = 15
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xgoki")
+draw_pass_1 = ExtResource("3_ilsp5")

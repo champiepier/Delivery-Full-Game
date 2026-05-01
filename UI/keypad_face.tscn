@@ -74,7 +74,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1230402854]
+[node name="Button10" type="Button" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1230402854]
 z_index = 5
 custom_minimum_size = Vector2(76, 76)
 layout_mode = 2
@@ -134,7 +134,7 @@ position = Vector2(320, 239.99998)
 scale = Vector2(0.59821427, 0.5982144)
 texture = ExtResource("1_pqi6l")
 
-[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button10" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]

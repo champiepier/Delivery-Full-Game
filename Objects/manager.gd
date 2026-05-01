@@ -75,7 +75,6 @@ func _on_des_timer_timeout() -> void:
 	
 func on_interact():
 	var int_obj = player.find_crosshair_col()
-	print(int_obj)
 	if int_obj != null:
 		if int_obj.name == "StaticBody3D":
 			int_obj = int_obj.get_parent()
@@ -103,8 +102,7 @@ func on_interact():
 					anims.play("LookAtKeypad")
 				_:
 					$"../GUI/InteractingObjName".text = "#null_obj"
-		
-		
+
 func show_object(obj_name):
 	match obj_name:
 		"HowToPlay":

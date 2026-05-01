@@ -34,8 +34,9 @@ func _physics_process(delta: float) -> void:
 		typed_code = ""
 		
 func generate_4_digit_string() -> String:
-	# Generates an integer between 0 and 9999
-	var random_val = randi() % 10000 
-	# Formats to a 4-digit string with leading zeros
-	return "%04d" % random_val
+	var result = ""
+	for i in range(4):
+		# Generates a digit from 1 to 9
+		result += str(randi_range(1, 9))
+	return result
 		

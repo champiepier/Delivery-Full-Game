@@ -1,0 +1,42 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cjyd4psgyep1e"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_o1b48"]
+parameter_name = "Dissolver_texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_b7wcl"]
+expanded_output_ports = [0]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_80aoh"]
+function = 1
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_hoguo"]
+parameter_name = "Texture_Scale"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_kxnl6"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_n7722"]
+constant = Color(0, 0, 0, 1)
+
+[resource]
+modes/cull = 2
+modes/diffuse = 3
+modes/specular = 1
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_o1b48")
+nodes/fragment/2/position = Vector2(-460, 300)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_b7wcl")
+nodes/fragment/3/position = Vector2(60, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_80aoh")
+nodes/fragment/4/position = Vector2(-380, 100)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVec2Parameter_hoguo")
+nodes/fragment/5/position = Vector2(-840, 120)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_kxnl6")
+nodes/fragment/6/position = Vector2(-142.60924, 723.87415)
+nodes/fragment/7/node = SubResource("VisualShaderNodeColorConstant_n7722")
+nodes/fragment/7/position = Vector2(190.62152, 106.13058)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 0, 3, 0, 5, 0, 4, 1, 6, 4, 0, 19, 6, 0, 0, 5, 3, 1, 0, 1, 7, 0, 0, 0)
