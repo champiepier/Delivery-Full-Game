@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cotassu0a0q7l" path="res://Assets/freesound_community-metallic-door-shut-98740.mp3" id="21_v6svf"]
 [ext_resource type="AudioStream" uid="uid://7iuherhsyve3" path="res://Assets/logicallism-incorrect-buzzer-374194.mp3" id="25_mjpkp"]
 [ext_resource type="AudioStream" uid="uid://dbjrwfsudvfwi" path="res://Assets/button_press.mp3" id="26_jekqu"]
+[ext_resource type="AudioStream" uid="uid://dxt7q5fa6lcec" path="res://Assets/rustry-twist.mp3" id="26_wy3ni"]
 [ext_resource type="AudioStream" uid="uid://d2gensrlhlock" path="res://Assets/freesoundfx-electric-generators-loopable-388827.mp3" id="27_mubu7"]
 [ext_resource type="AudioStream" uid="uid://dhba5vsmx1awg" path="res://Assets/freesound_community-correct-choice-43861.mp3" id="27_sn4iy"]
 [ext_resource type="PackedScene" uid="uid://jbir7tcr4obv" path="res://Misc/toxic_gas_vfx.tscn" id="28_sn4iy"]
@@ -395,6 +396,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RustyTwist:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b3802"]
 resource_name = "TurnValve"
@@ -411,6 +424,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, -1.5707964), Vector3(-0.7853982, 0, -1.5707964)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RustyTwist:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_fevyy"]
@@ -774,7 +799,7 @@ transparent_bg = true
 [node name="EnergyLeftMeter" parent="Objects/PowerBox/PowerLeft/SubViewport" unique_id=5197800 instance=ExtResource("18_cfd4y")]
 
 [node name="GasValve" type="StaticBody3D" parent="Objects" unique_id=407752087]
-transform = Transform3D(-2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0, 0.5, 4.3846335, 1.9593475, 3)
+transform = Transform3D(-2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0, 0.5, -19.79057, 4.5013638, 19.217022)
 
 [node name="Pipe" type="CSGCylinder3D" parent="Objects/GasValve" unique_id=834802438]
 
@@ -869,6 +894,10 @@ volume_db = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.270214, 4.089946, 23.41078)
 stream = ExtResource("21_v6svf")
 
+[node name="RustyTwist" type="AudioStreamPlayer3D" parent="." unique_id=187751633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.812414, 4.542397, 19.090532)
+stream = ExtResource("26_wy3ni")
+
 [node name="IncorrectBuzzer" type="AudioStreamPlayer3D" parent="." unique_id=1422288488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.915314, 4.5995345, 23.41078)
 stream = ExtResource("25_mjpkp")
@@ -889,7 +918,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.915314, 4.5995345, 23.410
 stream = ExtResource("27_sn4iy")
 
 [node name="ToxicGasVFX" parent="." unique_id=499658254 instance=ExtResource("28_sn4iy")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -19.973135, 4.816863, 14.562075)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -20.5705, 4.6412225, 19.141417)
 
 [node name="generator" parent="." unique_id=777464550 instance=ExtResource("30_mpy1j")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -22.316994, 3.1197667, 26.145073)

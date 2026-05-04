@@ -53,6 +53,7 @@ collision_bounce = 0.6
 [node name="ToxicGasVFX" type="GPUParticles3D" unique_id=499658254]
 material_override = SubResource("ShaderMaterial_04bj4")
 amount = 15
+lifetime = 0.3
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_xgoki")
 draw_pass_1 = ExtResource("3_ilsp5")
