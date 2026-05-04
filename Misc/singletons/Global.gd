@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 			is_looking = false
 		else:
 			incorrect_code.emit()
+			is_looking = false
 		typed_code = ""
 		
 func generate_4_digit_string() -> String:

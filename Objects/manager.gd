@@ -162,6 +162,7 @@ func _on_correct_code():
 
 func _on_incorrect_code():
 	$"../IncorrectBuzzer".play()
+	$"../GUI/KeypadFace".hide()
 	
 func _on_button_pressed():
 	$"../ButtonPress".play()
