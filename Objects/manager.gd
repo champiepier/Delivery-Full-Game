@@ -98,8 +98,12 @@ func on_interact():
 					anims.play("open_mail_door")
 					await get_tree().create_timer(5.0).timeout
 					anims.play("close_mail_door")
-				"KeyPad", "KeyPad2":
+				"KeyPad":
 					anims.play("LookAtKeypad")
+				"KeyPad2":
+					open_doors()
+				"Main":
+					pass
 				_:
 					$"../GUI/InteractingObjName".text = "#null_obj"
 
@@ -112,7 +116,7 @@ func show_object(obj_name):
 func set_random_lights_timer():
 	randomize()
 	var random_wait_time: float = roundf((randf() * 50) * 4)
-	random_wait_time = clamp(random_wait_time, 45, 155)
+	random_wait_time = clamp(random_wait_time, 15, 45)
 	lights_timer.wait_time = random_wait_time
 	$"../Objects/PowerBox/PowerLeft/SubViewport/EnergyLeftMeter".reset_energy_level(random_wait_time)
 	lights_timer.start()
@@ -154,7 +158,7 @@ func no_oxygen_event():
 	world_environment.set_adjustment_color_correction(crazy_color_texture)
 	await get_tree().create_timer(15.0).timeout
 	get_tree().change_scene_to_file("res://UI/lose_screen.tscn")
-	
+
 func _on_correct_code():
 	$"../CorrectBuzzer".play()
 	$"../GUI/KeypadFace".hide()
@@ -163,6 +167,6 @@ func _on_correct_code():
 func _on_incorrect_code():
 	$"../IncorrectBuzzer".play()
 	$"../GUI/KeypadFace".hide()
-	
+
 func _on_button_pressed():
 	$"../ButtonPress".play()

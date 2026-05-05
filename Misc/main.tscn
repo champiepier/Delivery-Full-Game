@@ -19,12 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://4vuway5ti3hv" path="res://UI/energy_left_meter.tscn" id="18_cfd4y"]
 [ext_resource type="PackedScene" uid="uid://csvl5th81mvtq" path="res://Player/player.tscn" id="19_qj47t"]
 [ext_resource type="Script" uid="uid://c6rxhcn1gl1h8" path="res://Player/camera_3d.gd" id="20_c7p1l"]
+[ext_resource type="AudioStream" uid="uid://ca0c38c31nso5" path="res://Assets/freesound_community-fx-air-escape-92291.mp3" id="20_jvvhs"]
 [ext_resource type="AudioStream" uid="uid://dacpsnkturngc" path="res://Assets/freesound_community-large-metal-lift-door-openingwav-14459.mp3" id="21_0nika"]
 [ext_resource type="PackedScene" uid="uid://b23f8qsa36p8l" path="res://Assets/wood_crate.blend" id="21_1vqrx"]
 [ext_resource type="Texture2D" uid="uid://ctof5ym6uq31j" path="res://Assets/textures/256 palette.png" id="21_hnp7j"]
 [ext_resource type="PackedScene" uid="uid://bfm34difb61fb" path="res://UI/keypad_face.tscn" id="21_mjpkp"]
 [ext_resource type="PackedScene" uid="uid://dcvn88t034et0" path="res://Assets/ship.blend" id="21_rcrf8"]
 [ext_resource type="AudioStream" uid="uid://cotassu0a0q7l" path="res://Assets/freesound_community-metallic-door-shut-98740.mp3" id="21_v6svf"]
+[ext_resource type="Environment" uid="uid://b0kal7e6gka8y" path="res://Misc/Environments/dark1.tres" id="23_wfxp5"]
 [ext_resource type="AudioStream" uid="uid://7iuherhsyve3" path="res://Assets/logicallism-incorrect-buzzer-374194.mp3" id="25_mjpkp"]
 [ext_resource type="AudioStream" uid="uid://dbjrwfsudvfwi" path="res://Assets/button_press.mp3" id="26_jekqu"]
 [ext_resource type="AudioStream" uid="uid://dxt7q5fa6lcec" path="res://Assets/rustry-twist.mp3" id="26_wy3ni"]
@@ -486,8 +488,6 @@ _data = {
 &"open_mail_door": SubResource("Animation_hibaj")
 }
 
-[sub_resource type="Environment" id="Environment_mqv1q"]
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_ov7ob"]
 viewport_path = NodePath("ship/KeyPad/Sprite3D/SubViewport")
 
@@ -810,6 +810,14 @@ height = 0.27539063
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Objects/GasValve" unique_id=640892016]
 shape = SubResource("ConcavePolygonShape3D_h1bgf")
 
+[node name="ToxicGasVFX" parent="Objects/GasValve" unique_id=499658254 instance=ExtResource("28_sn4iy")]
+transform = Transform3D(-2, 1.7484555e-07, 0, -1.7484555e-07, -2, 0, 0, 0, 2, -0.27971745, -1.8914948, -0.15121078)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Objects/GasValve" unique_id=952871333]
+stream = ExtResource("20_jvvhs")
+pitch_scale = 0.48
+parameters/looping = true
+
 [node name="Player" parent="." unique_id=1698205497 instance=ExtResource("19_qj47t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.13881, 4.775502, 17.759706)
 
@@ -835,7 +843,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.10683, 3.1682734, 13.3783
 libraries/ = SubResource("AnimationLibrary_fdnlq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328236260]
-environment = SubResource("Environment_mqv1q")
+environment = ExtResource("23_wfxp5")
 
 [node name="ship" parent="." unique_id=752131330 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
@@ -907,6 +915,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.315313, 3.7995346, 26.010
 stream = ExtResource("27_mubu7")
 volume_db = -20.0
 autoplay = true
+parameters/looping = true
 
 [node name="ButtonPress" type="AudioStreamPlayer3D" parent="." unique_id=222844628]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.915314, 4.5995345, 23.41078)
@@ -917,15 +926,13 @@ volume_db = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.915314, 4.5995345, 23.41078)
 stream = ExtResource("27_sn4iy")
 
-[node name="ToxicGasVFX" parent="." unique_id=499658254 instance=ExtResource("28_sn4iy")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -20.5705, 4.6412225, 19.141417)
-
 [node name="generator" parent="." unique_id=777464550 instance=ExtResource("30_mpy1j")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -22.316994, 3.1197667, 26.145073)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1260064904]
+[node name="Clicks" type="AudioStreamPlayer" parent="." unique_id=1260064904]
 stream = ExtResource("32_dlf6k")
 autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="Manager/DesTimer" to="Manager" method="_on_des_timer_timeout"]
 [connection signal="timeout" from="Manager/LightsTimer" to="Manager" method="_on_lights_timer_timeout"]
@@ -934,3 +941,4 @@ autoplay = true
 
 [editable path="Player"]
 [editable path="ship"]
+[editable path="generator"]
