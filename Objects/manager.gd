@@ -12,6 +12,12 @@ extends Node
 
 var normal_color_texture = load("res://Assets/LUTs/normColor.tres")
 var crazy_color_texture = load("res://Assets/LUTs/Cube/16-8bit.png")
+var gas_leaking: bool = false
+
+var valve_times_turned: int = 0
+var turns_needed: int
+
+var gas_strength: float = 0.05
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +48,21 @@ func _physics_process(_delta: float) -> void:
 		no_oxygen_event()
 		
 	Global.power_left = lights_timer.time_left
-		
+	
+	if gas_leaking:
+		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", gas_strength)
+		gas_strength += 0.01
+		turns_needed = round(randf() * 3) + 3
+		player.speed = 2.5
+		if not $"../Objects/GasValve/GasHiss".playing:
+			$"../Objects/GasValve/GasHiss".play()
+		$"../Objects/GasValve/ToxicGasVFX".emitting = true
+	else:
+		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", 0)
+		valve_times_turned = 0
+		player.speed = 5.0
+		$"../Objects/GasValve/GasHiss".stop()
+		$"../Objects/GasValve/ToxicGasVFX".emitting = false
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -115,14 +135,13 @@ func show_object(obj_name):
 			
 func set_random_lights_timer():
 	randomize()
-	var random_wait_time: float = roundf((randf() * 50) * 4)
-	random_wait_time = clamp(random_wait_time, 15, 45)
+	var random_wait_time: float = randf_range(15.0, 45.0)
 	lights_timer.wait_time = random_wait_time
 	$"../Objects/PowerBox/PowerLeft/SubViewport/EnergyLeftMeter".reset_energy_level(random_wait_time)
 	lights_timer.start()
 
 func _on_lights_timer_timeout() -> void:
-	anims.play("Lights Flicker")
+	gas_leaking = true
 	
 func turn_on_lights():
 	$"../Objects/MainLight".show()
@@ -144,6 +163,11 @@ func _on_anims_animation_finished(anim_name: StringName) -> void:
 		oxygen_bar.increase_oxygen()
 	elif anim_name == "LookAtKeypad":
 		Global.is_looking = true
+	elif anim_name == "TurnValve":
+		valve_times_turned += 1
+		if valve_times_turned >= turns_needed:
+			gas_leaking = false
+			set_random_lights_timer()
 		
 func check_oxygen():
 	oxygen_bar.reduce_oxygen()
