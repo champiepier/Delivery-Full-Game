@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, fog_disabled;
+render_mode unshaded, fog_disabled, depth_draw_never;
 
 uniform sampler2D distance_curve;
 uniform float aberration_strength : hint_range(0.0, 1.0) = 0.05;

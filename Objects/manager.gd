@@ -51,17 +51,21 @@ func _physics_process(_delta: float) -> void:
 	
 	if gas_leaking:
 		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", gas_strength)
-		gas_strength += 0.01
-		turns_needed = round(randf() * 3) + 3
+		turns_needed = round(randf() * 3) + 4
 		player.speed = 2.5
 		if not $"../Objects/GasValve/GasHiss".playing:
 			$"../Objects/GasValve/GasHiss".play()
+			var tween = create_tween()
+			tween.tween_property(self, "gas_strength", 1.0, 5.0).from(0.05)
 		$"../Objects/GasValve/ToxicGasVFX".emitting = true
 	else:
 		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", 0)
 		valve_times_turned = 0
 		player.speed = 5.0
-		$"../Objects/GasValve/GasHiss".stop()
+		if $"../Objects/GasValve/GasHiss".playing:	
+			$"../Objects/GasValve/GasHiss".stop()
+			var tween = create_tween()
+			tween.tween_property(self, "gas_strength", 0.0, 4.0)
 		$"../Objects/GasValve/ToxicGasVFX".emitting = false
 		
 func _input(event: InputEvent) -> void:
@@ -135,7 +139,7 @@ func show_object(obj_name):
 			
 func set_random_lights_timer():
 	randomize()
-	var random_wait_time: float = randf_range(15.0, 45.0)
+	var random_wait_time: float = randf_range(23.0, 65.0)
 	lights_timer.wait_time = random_wait_time
 	$"../Objects/PowerBox/PowerLeft/SubViewport/EnergyLeftMeter".reset_energy_level(random_wait_time)
 	lights_timer.start()
