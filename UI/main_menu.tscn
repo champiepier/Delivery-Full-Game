@@ -7,6 +7,36 @@
 [ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="4_k0a0m"]
 [ext_resource type="PackedScene" uid="uid://d16tvu2fbgftn" path="res://UI/controls_setting.tscn" id="5_2mudq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ctay"]
+bg_color = Color(0.13213876, 0.16470721, 0.17866698, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev3b6"]
+bg_color = Color(0.101960786, 0.11372549, 0.13725491, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0a0m"]
+bg_color = Color(0.08005009, 0.08211946, 0.111121215, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_8ctay"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/fonts/font = null
+Button/styles/hover = SubResource("StyleBoxFlat_8ctay")
+Button/styles/normal = SubResource("StyleBoxFlat_ev3b6")
+Button/styles/pressed = SubResource("StyleBoxFlat_k0a0m")
+
 [sub_resource type="Gradient" id="Gradient_8ctay"]
 colors = PackedColorArray(0, 1, 0, 1, 0, 0.23529412, 0, 0.54901963)
 
@@ -33,6 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_8ctay")
 script = ExtResource("1_f40uw")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=406355907]
@@ -52,6 +83,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="BG_IMAGE" type="TextureRect" parent="MarginContainer" unique_id=520917223]
+texture_filter = 2
 layout_mode = 2
 texture = ExtResource("2_8ctay")
 expand_mode = 2

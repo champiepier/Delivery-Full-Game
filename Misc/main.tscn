@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bkh6mnd3ayl5w" path="res://UI/vignette.tscn" id="9_sn4iy"]
 [ext_resource type="Texture2D" uid="uid://dymil2arj6lg1" path="res://Assets/Art/Prototype Textures/Orange/texture_01.png" id="10_1vqrx"]
 [ext_resource type="PackedScene" uid="uid://c2vle65x32yyk" path="res://UI/mail_tablet.tscn" id="11_mpy1j"]
-[ext_resource type="Texture2D" uid="uid://bi6p723fifsa6" path="res://Assets/Art/HowToPlayNoteDisplay.png" id="12_mubu7"]
+[ext_resource type="Texture2D" uid="uid://no60uddfebiy" path="res://Assets/Art/HowToPlayNote.png" id="12_wawo1"]
 [ext_resource type="PackedScene" uid="uid://joeiubia0k07" path="res://UI/map.tscn" id="13_dlf6k"]
 [ext_resource type="Texture2D" uid="uid://dar1qknh4eohl" path="res://Assets/Art/Prototype Textures/Red/texture_01.png" id="14_wy3ni"]
 [ext_resource type="Texture2D" uid="uid://bqjxqotm5s5jb" path="res://Assets/Art/Prototype Textures/Green/texture_01.png" id="15_wfxp5"]
@@ -660,9 +660,9 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Sprite3D" type="Sprite3D" parent="Walls/Walls/HowToPlay" unique_id=105784091]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0, 0)
+transform = Transform3D(-1.0927847e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.0927847e-08, 0, 0, 0)
 double_sided = false
-texture = ExtResource("12_mubu7")
+texture = ExtResource("12_wawo1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Walls/HowToPlay" unique_id=1959120264]
 shape = SubResource("BoxShape3D_344ge")
@@ -882,16 +882,16 @@ environment = ExtResource("23_wfxp5")
 [node name="ship" parent="." unique_id=752131330 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
-[node name="Door1" parent="ship" index="10" unique_id=514202241]
+[node name="Door1" parent="ship" index="10" unique_id=479372129]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, -2.5, 1, 7.3)
 
-[node name="Door2" parent="ship" index="11" unique_id=524011476]
+[node name="Door2" parent="ship" index="11" unique_id=2106120479]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, 2.5, 1, 7.3)
 
-[node name="WindowGlass" parent="ship" index="16" unique_id=2003780473]
+[node name="WindowGlass" parent="ship" index="16" unique_id=1281297394]
 transparency = 0.25
 
-[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(752131330, 1843708741) index="1" unique_id=1618365369]
+[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(752131330, 24741718) index="1" unique_id=1618365369]
 transform = Transform3D(-0.22223341, 0, -3.019916e-08, 0, 0.20475, 0, 3.355631e-08, 0, -0.2, 0, 0, 0.89860916)
 texture = SubResource("ViewportTexture_ov7ob")
 
