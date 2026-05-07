@@ -1,9 +1,16 @@
 extends Control
 
+var menu_images = [
+	preload("res://Assets/Art/DeliveryMM-1.jpg"),
+	preload("res://Assets/Art/DeliveryMM-2.jpg"),
+	preload("res://Assets/Art/DeliveryMM-3.jpg")	
+]
+
+@onready var bg_image: TextureRect = $MarginContainer/BG_IMAGE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	bg_image.texture = menu_images.pick_random()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -15,6 +15,9 @@ signal interact()
 signal button_press()
 signal correct_code()
 signal incorrect_code()
+
+signal generator_off()
+signal generator_on()
 		
 func add_code_digit(digit):
 	typed_code += str(digit)
