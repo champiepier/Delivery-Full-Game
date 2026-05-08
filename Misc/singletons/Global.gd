@@ -15,6 +15,9 @@ signal interact()
 signal button_press()
 signal correct_code()
 signal incorrect_code()
+signal depelete_oxygen()
+
+signal oxygen_gone()
 
 signal generator_off()
 signal generator_on()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlu5apum1aksy"]
 
 [ext_resource type="Script" uid="uid://t7t8muu72q0v" path="res://UI/oxygen_bar.gd" id="1_aurtf"]
+[ext_resource type="FontFile" uid="uid://d25hhsl85ekfg" path="res://Assets/Fonts/Courier_Prime/CourierPrime-Regular.ttf" id="2_6pt1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x6p0"]
 bg_color = Color(0.13333334, 0.13333334, 0.13333334, 0.78431374)
@@ -34,3 +35,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_aurtf")
 max_value = 20.0
 step = 1.0
 value = 20.0
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1702962874]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6pt1j")
+theme_override_font_sizes/font_size = 20
+text = "Oxygen"
+horizontal_alignment = 1
+vertical_alignment = 1

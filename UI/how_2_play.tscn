@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc65jhj4p1gds" path="res://UI/how_2_play.gd" id="1_jp74o"]
 [ext_resource type="Texture2D" uid="uid://no60uddfebiy" path="res://Assets/Art/HowToPlayNote.png" id="2_7g1nw"]
 [ext_resource type="FontFile" uid="uid://1e0us5tswax5" path="res://Assets/Fonts/Caveat/Caveat-Bold.ttf" id="3_7g1nw"]
+[ext_resource type="AudioStream" uid="uid://bkuq05rr2ogc0" path="res://Assets/freesound_community-page-flip-47177.mp3" id="4_ol8ws"]
 
 [sub_resource type="Animation" id="Animation_t2rag"]
 length = 0.001
@@ -25,6 +26,18 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageLift:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -58,6 +71,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageLift:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_oj2e0"]
 resource_name = "show"
@@ -81,6 +106,18 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageLift:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -123,3 +160,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_7g1nw")
 theme_override_font_sizes/font_size = 22
 text = "?????"
+
+[node name="PageLift" type="AudioStreamPlayer" parent="." unique_id=1390070876]
+stream = ExtResource("4_ol8ws")

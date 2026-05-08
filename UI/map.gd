@@ -4,6 +4,8 @@ extends Control
 @onready var cur: Sprite2D = $MarginContainer/Cur
 @onready var des: Sprite2D = $MarginContainer/Des
 
+var map_tween
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +13,8 @@ func _ready() -> void:
 	path.set_point_position(1, Vector2(243, 420))
 	des.position = path.get_point_position(0)
 	cur.position = path.get_point_position(1)
+	Global.generator_off.connect(turn_gen_off)
+	Global.generator_on.connect(turn_gen_on)
 	
 	start_movement()
 
@@ -18,11 +22,16 @@ func start_movement():
 	path.set_point_position(1, cur.position)
 	
 	var duration = $"../../../../../Manager".des_timer.wait_time
-	var tween = get_tree().create_tween()
+	map_tween = get_tree().create_tween()
 	
-	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(cur, "position", des.position, duration)
+	map_tween.set_trans(Tween.TRANS_LINEAR)
+	map_tween.tween_property(cur, "position", des.position, duration)
+	
+func turn_gen_off():
+	map_tween.stop()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.	
+func turn_gen_on():
+	map_tween.play()
+
 func _physics_process(delta: float) -> void:
 	path.set_point_position(1, cur.position)

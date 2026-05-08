@@ -6,7 +6,7 @@ extends Node
 @onready var lights_timer: Timer = $LightsTimer
 @onready var anims: AnimationPlayer = $"../anims"
 @onready var oxygen_meter_timer: Timer = $OxygenMeterTimer
-@onready var oxygen_bar: Control = $"../GUI/OxygenBar"
+@onready var oxygen_bar: Control = $"../OxygenLevel/SubViewport/OxygenBar"
 @onready var world_environment = $"../WorldEnvironment".get_environment()
 
 
@@ -33,6 +33,10 @@ func _ready() -> void:
 	Global.correct_code.connect(_on_correct_code)
 	Global.incorrect_code.connect(_on_incorrect_code)
 	Global.button_press.connect(_on_button_pressed)
+	Global.oxygen_gone.connect(no_oxygen_event)
+	Global.generator_off.connect(turn_gen_off)
+	Global.generator_on.connect(turn_gen_on)
+	random_generator_time()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -44,9 +48,6 @@ func _physics_process(_delta: float) -> void:
 		player.speed = 5.0
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
-	if Global.no_oxygen:
-		no_oxygen_event()
-		
 	Global.power_left = lights_timer.time_left
 	
 	if gas_leaking:
@@ -57,10 +58,12 @@ func _physics_process(_delta: float) -> void:
 			$"../Objects/GasValve/GasHiss".play()
 			var tween = create_tween()
 			tween.tween_property(self, "gas_strength", 1.0, 5.0).from(0.05)
+			Global.emit_signal("depelete_oxygen")
 		$"../Objects/GasValve/ToxicGasVFX".emitting = true
 	else:
 		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", 0)
 		valve_times_turned = 0
+		turns_needed = 0
 		player.speed = 5.0
 		if $"../Objects/GasValve/GasHiss".playing:	
 			$"../Objects/GasValve/GasHiss".stop()
@@ -127,7 +130,7 @@ func on_interact():
 				"KeyPad2":
 					open_doors()
 				"Main":
-					pass
+					Global.emit_signal("generator_on")
 				_:
 					$"../GUI/InteractingObjName".text = "#null_obj"
 
@@ -141,8 +144,20 @@ func set_random_lights_timer():
 	randomize()
 	var random_wait_time: float = randf_range(23.0, 65.0)
 	lights_timer.wait_time = random_wait_time
-	$"../Objects/PowerBox/PowerLeft/SubViewport/EnergyLeftMeter".reset_energy_level(random_wait_time)
 	lights_timer.start()
+	
+func random_generator_time():
+	randomize()
+	var random_gen_wait_time: float = randf_range(60.0, 75.0)
+	var fake_chance: int = randi_range(1, 5)
+	await get_tree().create_timer(random_gen_wait_time).timeout
+	if fake_chance == 5:
+		Global.emit_signal("generator_off")
+		await get_tree().create_timer(5.0).timeout
+		Global.emit_signal("generator_on")
+	else:
+		Global.emit_signal("generator_off")
+	
 
 func _on_lights_timer_timeout() -> void:
 	gas_leaking = true
@@ -169,9 +184,13 @@ func _on_anims_animation_finished(anim_name: StringName) -> void:
 		Global.is_looking = true
 	elif anim_name == "TurnValve":
 		valve_times_turned += 1
-		if valve_times_turned >= turns_needed:
+		if valve_times_turned == turns_needed:
 			gas_leaking = false
 			set_random_lights_timer()
+		elif valve_times_turned > turns_needed:
+			Global.depelete_oxygen.emit()
+	elif anim_name == "player_fall":
+		get_tree().change_scene_to_file("res://UI/lose_screen.tscn")
 		
 func check_oxygen():
 	oxygen_bar.reduce_oxygen()
@@ -184,8 +203,8 @@ func _on_oxygen_meter_timer_timeout() -> void:
 func no_oxygen_event():
 	$"../GUI/Vignette".show()
 	world_environment.set_adjustment_color_correction(crazy_color_texture)
-	await get_tree().create_timer(15.0).timeout
-	get_tree().change_scene_to_file("res://UI/lose_screen.tscn")
+	await get_tree().create_timer(10.0).timeout
+	anims.play("player_fall")
 
 func _on_correct_code():
 	$"../CorrectBuzzer".play()
@@ -198,3 +217,12 @@ func _on_incorrect_code():
 
 func _on_button_pressed():
 	$"../ButtonPress".play()
+	
+func turn_gen_off():
+	$"../GeneratorHum".stream_paused = true
+	$"../OmniLight3D".hide()
+	
+func turn_gen_on():
+	$"../GeneratorHum".stream_paused = false
+	$"../OmniLight3D".show()
+	random_generator_time()
