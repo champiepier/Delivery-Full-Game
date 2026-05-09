@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cc07b52xq7t4s"]
+
+[node name="Radio" type="Control" unique_id=1332169932]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="." unique_id=696068654]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GoodZone" type="ColorRect" parent="." unique_id=2093029860]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 312.0
+offset_top = -20.0
+offset_right = -312.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.9208333, 0.050000012, 1)
+
+[node name="BadZone" type="ColorRect" parent="." unique_id=1265322479]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -20.0
+offset_right = -576.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BadZone2" type="ColorRect" parent="." unique_id=1430038038]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = -20.0
+offset_right = -448.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BadZone3" type="ColorRect" parent="." unique_id=1065253580]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 448.0
+offset_top = -20.0
+offset_right = -176.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BadZone4" type="ColorRect" parent="." unique_id=2097085165]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 576.0
+offset_top = -20.0
+offset_right = -48.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Slider" type="ColorRect" parent="." unique_id=1251506875]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 312.0
+offset_top = -8.0
+offset_right = -312.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.050000012, 0.050000012, 1)

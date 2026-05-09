@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b6tkkw8r6ptl"]
+
+[ext_resource type="PackedScene" uid="uid://bb1dj7yk32h56" path="res://Assets/fridge.blend" id="1_cakc1"]
+
+[node name="fridge" unique_id=1411882915 instance=ExtResource("1_cakc1")]

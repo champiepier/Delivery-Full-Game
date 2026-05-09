@@ -40,25 +40,21 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	
-	if Global.is_looking:
-		player.speed = 0.0
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		player.speed = 5.0
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 	Global.power_left = lights_timer.time_left
 	
 	if gas_leaking:
 		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", gas_strength)
-		turns_needed = round(randf() * 3) + 4
 		player.speed = 2.5
 		if not $"../Objects/GasValve/GasHiss".playing:
 			$"../Objects/GasValve/GasHiss".play()
 			var tween = create_tween()
 			tween.tween_property(self, "gas_strength", 1.0, 5.0).from(0.05)
-			Global.emit_signal("depelete_oxygen")
+			while gas_leaking:
+				await get_tree().create_timer(3.0).timeout
+				if not gas_leaking:
+					break
+				Global.emit_signal("depelete_oxygen")
 		$"../Objects/GasValve/ToxicGasVFX".emitting = true
 	else:
 		$"../Player/CameraPivot/Camera3D/Distortion".mesh.material.set_shader_parameter("aberration_strength", 0)
@@ -70,6 +66,13 @@ func _physics_process(_delta: float) -> void:
 			var tween = create_tween()
 			tween.tween_property(self, "gas_strength", 0.0, 4.0)
 		$"../Objects/GasValve/ToxicGasVFX".emitting = false
+		
+	if Global.is_looking:
+		player.speed = 0.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		player.speed = 5.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -116,7 +119,6 @@ func on_interact():
 				"PowerBox":
 					if lights_timer.time_left <= 0.0:
 						turn_on_lights()
-						set_random_lights_timer()
 				"OxygenButton":
 					anims.play("PressOxygenButton")
 				"GasValve":
@@ -130,6 +132,7 @@ func on_interact():
 				"KeyPad2":
 					open_doors()
 				"Main":
+					$"../generator/MtealHit".play()
 					Global.emit_signal("generator_on")
 				_:
 					$"../GUI/InteractingObjName".text = "#null_obj"
@@ -161,6 +164,7 @@ func random_generator_time():
 
 func _on_lights_timer_timeout() -> void:
 	gas_leaking = true
+	turns_needed = randi_range(4, 7)
 	
 func turn_on_lights():
 	$"../Objects/MainLight".show()

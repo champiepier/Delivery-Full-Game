@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://75hfx2op750e"]
+
+[ext_resource type="Texture2D" uid="uid://b1qa81ngaqlf2" path="res://Assets/Art/Dirt.png" id="1_yjd53"]
+
+[node name="Dirtstain" type="Sprite3D" unique_id=895115790]
+modulate = Color(1, 1, 1, 0.49803922)
+texture = ExtResource("1_yjd53")

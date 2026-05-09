@@ -3,10 +3,6 @@ extends Control
 @onready var delivery_num_label: RichTextLabel = $MarginContainer/MarginContainer/DeliveryNumLabel
 @onready var anims: AnimationPlayer = $anims
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	delivery_num_label.text = "Delivery: " + str(Global.delivery_num)
-
 
 func _on_stay_on_screen_time_timeout() -> void:
 	anims.play("fade_out")
