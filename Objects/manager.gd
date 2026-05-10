@@ -13,6 +13,7 @@ extends Node
 var normal_color_texture = load("res://Assets/LUTs/normColor.tres")
 var crazy_color_texture = load("res://Assets/LUTs/Cube/16-8bit.png")
 var gas_leaking: bool = false
+var door_open: bool = false
 
 var valve_times_turned: int = 0
 var turns_needed: int
@@ -71,7 +72,6 @@ func _physics_process(_delta: float) -> void:
 		player.speed = 0.0
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
-		player.speed = 5.0
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 func _input(event: InputEvent) -> void:
@@ -108,6 +108,7 @@ func on_interact():
 	if int_obj != null:
 		if int_obj.name == "StaticBody3D":
 			int_obj = int_obj.get_parent()
+			
 		if int_obj != null and !int_obj.name in ["Walls", "Ceiling", "Floors"]:
 			$"../GUI/InteractingObjName".text = str(int_obj.name)
 			if int_obj.is_in_group("CanLookAt"):
@@ -134,6 +135,13 @@ func on_interact():
 				"Main":
 					$"../generator/MtealHit".play()
 					Global.emit_signal("generator_on")
+				"Fridge", "Door":
+					if door_open:
+						$"../anims".play("Close_Fridge")
+						door_open = false
+					else:
+						$"../anims".play("Open_Fridge")
+						door_open = true
 				_:
 					$"../GUI/InteractingObjName".text = "#null_obj"
 
