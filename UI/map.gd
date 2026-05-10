@@ -6,7 +6,6 @@ extends Control
 
 var map_tween
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	path.set_point_position(0, Vector2(553, 85))
