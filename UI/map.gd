@@ -21,7 +21,7 @@ func _ready() -> void:
 func start_movement():
 	path.set_point_position(1, cur.position)
 	
-	var duration = $"../../../../../Manager".des_timer.wait_time
+	var duration = $"../../../Manager".des_timer.wait_time
 	map_tween = get_tree().create_tween()
 	
 	map_tween.set_trans(Tween.TRANS_LINEAR)
