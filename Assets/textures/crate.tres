@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6cxeoij1hxog"]
+
+[ext_resource type="Texture2D" uid="uid://dic4utus0bktr" path="res://Assets/textures/tx_M_Crate_1_BaseColor.png" id="1_sci8s"]
+
+[resource]
+albedo_texture = ExtResource("1_sci8s")

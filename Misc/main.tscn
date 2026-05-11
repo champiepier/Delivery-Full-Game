@@ -621,16 +621,16 @@ parameters/looping = true
 transform = Transform3D(-8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0, 2, -0.082066536, -0.043689728, -0.25297928)
 stream = ExtResource("26_wy3ni")
 
-[node name="wood_crate" parent="Objects" unique_id=1754801749 instance=ExtResource("21_1vqrx")]
+[node name="wood_crate" parent="Objects" unique_id=79829862 instance=ExtResource("21_1vqrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.10683, 3.1682734, 12.378394)
 
-[node name="wood_crate2" parent="Objects" unique_id=623649055 instance=ExtResource("21_1vqrx")]
+[node name="wood_crate2" parent="Objects" unique_id=1466942913 instance=ExtResource("21_1vqrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.10683, 3.1682734, 13.378394)
 
-[node name="wood_crate3" parent="Objects" unique_id=1335225135 instance=ExtResource("21_1vqrx")]
+[node name="wood_crate3" parent="Objects" unique_id=1841614288 instance=ExtResource("21_1vqrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.10683, 3.1682734, 14.378394)
 
-[node name="wood_crate4" parent="Objects" unique_id=384510071 instance=ExtResource("21_1vqrx")]
+[node name="wood_crate4" parent="Objects" unique_id=652578235 instance=ExtResource("21_1vqrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.50683, 3.7682734, 19.478395)
 
 [node name="Player" parent="." unique_id=1698205497 instance=ExtResource("19_qj47t")]
@@ -667,16 +667,16 @@ size = Vector2i(640, 480)
 [node name="ship" parent="." unique_id=752131330 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
-[node name="Door1" parent="ship" index="10" unique_id=479372129]
+[node name="Door1" parent="ship" index="10" unique_id=514202241]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, -2.5, 1, 7.3)
 
-[node name="Door2" parent="ship" index="11" unique_id=2106120479]
+[node name="Door2" parent="ship" index="11" unique_id=524011476]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, 2.5, 1, 7.3)
 
-[node name="WindowGlass" parent="ship" index="16" unique_id=1281297394]
+[node name="WindowGlass" parent="ship" index="16" unique_id=2003780473]
 transparency = 0.25
 
-[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(752131330, 24741718) index="1" unique_id=1618365369]
+[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(752131330, 1843708741) index="1" unique_id=1618365369]
 transform = Transform3D(-0.22223341, 0, -3.019916e-08, 0, 0.20475, 0, 3.355631e-08, 0, -0.2, 0, 0, 0.89860916)
 texture = SubResource("ViewportTexture_ov7ob")
 
@@ -756,7 +756,7 @@ parameters/looping = true
 [node name="fridge" parent="." unique_id=1411882915 instance=ExtResource("33_wy3ni")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.511225, 3.113496, 19.481533)
 
-[node name="CollisionShape3D" parent="fridge/Door/StaticBody3D" parent_id_path=PackedInt32Array(1411882915, 174700289) index="0" unique_id=1227238005]
+[node name="CollisionShape3D" parent="fridge/Door/StaticBody3D" parent_id_path=PackedInt32Array(1411882915, 794440844) index="0" unique_id=425927421]
 disabled = true
 
 [connection signal="timeout" from="Manager/DesTimer" to="Manager" method="_on_des_timer_timeout"]
