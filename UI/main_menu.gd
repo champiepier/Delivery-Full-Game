@@ -26,3 +26,7 @@ func _on_play_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	$MarginContainer/ControlsSetting.show()
+
+
+func _on_credits_pressed() -> void:
+	$MarginContainer/Credits.show()

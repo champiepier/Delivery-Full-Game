@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cy6gnn5urt42f"]
+
+[ext_resource type="Script" uid="uid://b7r4n1k6cm4go" path="res://UI/credits.gd" id="1_uuuvy"]
+[ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="2_kk2ga"]
+
+[node name="Credits" type="Control" unique_id=1080287311]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uuuvy")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=691067978]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=649392798]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=483146366]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 128
+
+[node name="CeditsList2" type="RichTextLabel" parent="MarginContainer/MarginContainer" unique_id=1824688873]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_kk2ga")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "Some SFX from Pixabay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer" unique_id=2006564308]
+layout_mode = 2
+theme_override_constants/margin_top = 432
+
+[node name="Close" type="Button" parent="MarginContainer/MarginContainer2" unique_id=1278803995]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/MarginContainer2/Close" to="." method="_on_close_pressed"]
