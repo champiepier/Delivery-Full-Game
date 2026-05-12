@@ -20,17 +20,19 @@ func _ready() -> void:
 func start_movement():
 	path.set_point_position(1, cur.position)
 	
-	var duration = $"../../../Manager".des_timer.wait_time
+	var duration = %DesTimer.wait_time
 	map_tween = get_tree().create_tween()
 	
 	map_tween.set_trans(Tween.TRANS_LINEAR)
 	map_tween.tween_property(cur, "position", des.position, duration)
 	
 func turn_gen_off():
-	map_tween.stop()
+	map_tween.pause()
+	%DesTimer.paused = true
 
 func turn_gen_on():
 	map_tween.play()
+	%DesTimer.paused = false
 
 func _physics_process(delta: float) -> void:
 	path.set_point_position(1, cur.position)

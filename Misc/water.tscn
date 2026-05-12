@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b0ogn6dcucovr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gdd8h"]
+spread = 15.0
+initial_velocity_min = 8.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, -4, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 0.6
+turbulence_noise_scale = 0.45
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_0x4gf"]
+
+[node name="Water" type="GPUParticles3D" unique_id=459812453]
+amount = 230
+process_material = SubResource("ParticleProcessMaterial_gdd8h")
+draw_pass_1 = SubResource("PlaceholderMesh_0x4gf")

@@ -2,6 +2,8 @@ extends Control
 
 @onready var oxygen_meter: ProgressBar = $MarginContainer/OxygenMeter
 
+var volumes = [0, -5, -10, -15, -20]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.connect("depelete_oxygen", reduce_oxygen)
@@ -14,6 +16,9 @@ func _process(delta: float) -> void:
 
 func reduce_oxygen():
 	oxygen_meter.value -= oxygen_meter.step
+	if oxygen_meter.value < 5:
+		$HBEAT.play()
+		$HBEAT.volume_db = volumes[oxygen_meter.value]
 	
 func increase_oxygen():
 	if oxygen_meter.value < oxygen_meter.max_value * 0.5:

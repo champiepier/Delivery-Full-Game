@@ -9,6 +9,13 @@ extends Node
 @onready var oxygen_bar: Control = $"../OxygenLevel/SubViewport/OxygenBar"
 @onready var world_environment = $"../WorldEnvironment".get_environment()
 
+@onready var boom_exp: AudioStreamPlayer3D = $"../RandomSFX/BoomExp"
+@onready var footsteps: AudioStreamPlayer3D = $"../RandomSFX/Footsteps"
+@onready var sonar: AudioStreamPlayer3D = $"../RandomSFX/Sonar"
+@onready var rwind: AudioStreamPlayer3D = $"../RandomSFX/RWIND"
+@onready var morse: AudioStreamPlayer3D = $"../RandomSFX/Morse"
+
+var random_sfx = [boom_exp, footsteps, sonar, rwind, morse]
 
 var normal_color_texture = load("res://Assets/LUTs/normColor.tres")
 var crazy_color_texture = load("res://Assets/LUTs/Cube/16-8bit.png")
@@ -52,7 +59,7 @@ func _physics_process(_delta: float) -> void:
 			var tween = create_tween()
 			tween.tween_property(self, "gas_strength", 1.0, 5.0).from(0.05)
 			while gas_leaking:
-				await get_tree().create_timer(3.0).timeout
+				await get_tree().create_timer(2.0).timeout
 				if not gas_leaking:
 					break
 				Global.emit_signal("depelete_oxygen")
@@ -164,7 +171,7 @@ func random_generator_time():
 	await get_tree().create_timer(random_gen_wait_time).timeout
 	if fake_chance == 5:
 		Global.emit_signal("generator_off")
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		Global.emit_signal("generator_on")
 	else:
 		Global.emit_signal("generator_off")

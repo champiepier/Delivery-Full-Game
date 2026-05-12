@@ -31,7 +31,12 @@
 [ext_resource type="AudioStream" uid="uid://d0fy8mqx5e6q3" path="res://Assets/metal-hit.mp3" id="31_dlf6k"]
 [ext_resource type="AudioStream" uid="uid://dfuwy7osex2rc" path="res://Assets/freesound_community-geiger-counter-clicks-low-25832.mp3" id="32_dlf6k"]
 [ext_resource type="AudioStream" uid="uid://cl1c65m2fwka8" path="res://Assets/dragon-studio-gentle-ocean-waves-499666.mp3" id="32_wy3ni"]
+[ext_resource type="AudioStream" uid="uid://dsi35ob1uw2tb" path="res://Assets/daviddumaisaudio-large-underwater-explosion-190270.mp3" id="33_cfd4y"]
 [ext_resource type="PackedScene" uid="uid://b6tkkw8r6ptl" path="res://Objects/fridge.tscn" id="33_wy3ni"]
+[ext_resource type="AudioStream" uid="uid://c7jbhtq4214b4" path="res://Assets/dragon-studio-footstep-rustling-499643.mp3" id="34_qj47t"]
+[ext_resource type="AudioStream" uid="uid://80w0fm4b1inf" path="res://Assets/dragon-studio-submarine-sonar-386154.mp3" id="35_c7p1l"]
+[ext_resource type="AudioStream" uid="uid://37i0vowhynho" path="res://Assets/dragon-studio-wind-gust-386158.mp3" id="36_vgk6f"]
+[ext_resource type="AudioStream" uid="uid://cxcoyavkpb8o6" path="res://Assets/morse_ship.mp3" id="37_5ac1p"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jkdf5"]
 viewport_path = NodePath("Screen/SubViewport")
@@ -535,6 +540,7 @@ data = PackedVector3Array(-0.3, 0.13333333, 1, -0.3, 0.39999998, 0.9, -0.3, 0.39
 script = ExtResource("1_mqv1q")
 
 [node name="DesTimer" type="Timer" parent="Manager" unique_id=350128841]
+unique_name_in_owner = true
 wait_time = 150.0
 one_shot = true
 autostart = true
@@ -632,84 +638,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.10683, 3.1682734, 13.3783
 [node name="wood_crate3" parent="Objects" unique_id=1841614288 instance=ExtResource("21_1vqrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.10683, 3.1682734, 14.378394)
 
-[node name="wood_crate5" parent="Objects" unique_id=1519797612 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6995, 3.1682734, 14.961952)
-
-[node name="wood_crate6" parent="Objects" unique_id=944850846 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.757177, 3.1682734, 14.961952)
-
-[node name="wood_crate7" parent="Objects" unique_id=310581318 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.1682734, 14.961952)
-
-[node name="wood_crate17" parent="Objects" unique_id=267994443 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.6682734, 15.461952)
-
-[node name="wood_crate18" parent="Objects" unique_id=1159081340 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.6682734, 16.561953)
-
-[node name="wood_crate19" parent="Objects" unique_id=1121586347 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.6682734, 17.661953)
-
-[node name="wood_crate26" parent="Objects" unique_id=1294267380 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 4.1682734, 17.161953)
-
-[node name="wood_crate27" parent="Objects" unique_id=452482061 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 4.1682734, 16.061953)
-
-[node name="wood_crate30" parent="Objects" unique_id=1901994566 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.288708, 4.6682734, 16.661953)
-
-[node name="wood_crate28" parent="Objects" unique_id=724661432 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.888708, 4.1682734, 16.061953)
-
-[node name="wood_crate29" parent="Objects" unique_id=2007494866 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.888708, 4.1682734, 17.261953)
-
-[node name="wood_crate20" parent="Objects" unique_id=2075280711 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.788708, 3.6682734, 17.661953)
-
-[node name="wood_crate21" parent="Objects" unique_id=769533558 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.788708, 3.6682734, 16.561953)
-
-[node name="wood_crate22" parent="Objects" unique_id=202952062 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.788708, 3.6682734, 15.361952)
-
-[node name="wood_crate23" parent="Objects" unique_id=1961405047 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.688707, 3.6682734, 15.361952)
-
-[node name="wood_crate24" parent="Objects" unique_id=1406269185 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.688707, 3.6682734, 16.561953)
-
-[node name="wood_crate25" parent="Objects" unique_id=1419909134 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.688707, 3.6682734, 17.561953)
-
-[node name="wood_crate8" parent="Objects" unique_id=563922510 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6995, 3.1682734, 15.9808655)
-
-[node name="wood_crate9" parent="Objects" unique_id=1509912409 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.757177, 3.1682734, 15.9808655)
-
-[node name="wood_crate10" parent="Objects" unique_id=1215150494 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.1682734, 15.9808655)
-
-[node name="wood_crate11" parent="Objects" unique_id=150371272 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6995, 3.1682734, 17.092049)
-
-[node name="wood_crate12" parent="Objects" unique_id=1894498784 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.757177, 3.1682734, 17.092049)
-
-[node name="wood_crate13" parent="Objects" unique_id=1482863761 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.1682734, 17.092049)
-
-[node name="wood_crate14" parent="Objects" unique_id=1629630829 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6995, 3.1682734, 18.102644)
-
-[node name="wood_crate15" parent="Objects" unique_id=1652735911 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.757177, 3.1682734, 18.102644)
-
-[node name="wood_crate16" parent="Objects" unique_id=1631469375 instance=ExtResource("21_1vqrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.788708, 3.1682734, 18.102644)
-
 [node name="wood_crate4" parent="Objects" unique_id=652578235 instance=ExtResource("21_1vqrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.50683, 3.7682734, 19.478395)
 
@@ -745,19 +673,19 @@ size = Vector2i(640, 480)
 
 [node name="OxygenBar" parent="OxygenLevel/SubViewport" unique_id=2112417945 instance=ExtResource("6_mjpkp")]
 
-[node name="ship" parent="." unique_id=1145839602 instance=ExtResource("21_rcrf8")]
+[node name="ship" parent="." unique_id=1661791364 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
-[node name="Door1" parent="ship" index="10" unique_id=1531227062]
+[node name="Door1" parent="ship" index="10" unique_id=569086502]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, -2.5, 1, 7.3)
 
-[node name="Door2" parent="ship" index="11" unique_id=924917549]
+[node name="Door2" parent="ship" index="11" unique_id=2126805535]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, 2.5, 1, 7.3)
 
-[node name="WindowGlass" parent="ship" index="16" unique_id=1484941840]
+[node name="WindowGlass" parent="ship" index="16" unique_id=1702558360]
 transparency = 0.25
 
-[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(1145839602, 974819371) index="1" unique_id=1618365369]
+[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(1661791364, 231292993) index="1" unique_id=1618365369]
 transform = Transform3D(-0.22223341, 0, -3.019916e-08, 0, 0.20475, 0, 3.355631e-08, 0, -0.2, 0, 0, 0.89860916)
 texture = SubResource("ViewportTexture_ov7ob")
 
@@ -789,12 +717,6 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.049849, 4.755546, 17.962763)
 light_energy = 5.0
 omni_range = 10.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1674696044]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.021042, 4.755546, 16.440159)
-light_energy = 8.721
-omni_range = 10.0
-omni_attenuation = 0.055
 
 [node name="OutsideLight" type="SpotLight3D" parent="." unique_id=566889385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.343956, 4.6024995, 27.735523)
@@ -852,6 +774,32 @@ stream = ExtResource("32_wy3ni")
 volume_db = -15.0
 autoplay = true
 parameters/looping = true
+
+[node name="RandomSFX" type="Node" parent="." unique_id=1249914231]
+
+[node name="BoomExp" type="AudioStreamPlayer3D" parent="RandomSFX" unique_id=142257334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.106274, 0, 16.135042)
+stream = ExtResource("33_cfd4y")
+volume_db = 5.0
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="RandomSFX" unique_id=2094914542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.547256, 1.2407808, 0)
+stream = ExtResource("34_qj47t")
+volume_db = 10.0
+
+[node name="Sonar" type="AudioStreamPlayer3D" parent="RandomSFX" unique_id=1533095356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.137682, 3.8465216, 11.926212)
+stream = ExtResource("35_c7p1l")
+
+[node name="RWIND" type="AudioStreamPlayer3D" parent="RandomSFX" unique_id=1024675234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.697329, 0, 8.731714)
+stream = ExtResource("36_vgk6f")
+volume_db = 20.0
+
+[node name="Morse" type="AudioStreamPlayer3D" parent="RandomSFX" unique_id=622563905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.92148, 2.6931155, 7.332494)
+stream = ExtResource("37_5ac1p")
+volume_db = -10.0
 
 [connection signal="timeout" from="Manager/DesTimer" to="Manager" method="_on_des_timer_timeout"]
 [connection signal="timeout" from="Manager/LightsTimer" to="Manager" method="_on_lights_timer_timeout"]

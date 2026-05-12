@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t7t8muu72q0v" path="res://UI/oxygen_bar.gd" id="1_aurtf"]
 [ext_resource type="FontFile" uid="uid://d25hhsl85ekfg" path="res://Assets/Fonts/Courier_Prime/CourierPrime-Regular.ttf" id="2_6pt1j"]
+[ext_resource type="AudioStream" uid="uid://c7yjr0im2eqvc" path="res://Assets/soundreality-heart-beat-137135.mp3" id="3_7vkb4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x6p0"]
 bg_color = Color(0.13333334, 0.13333334, 0.13333334, 0.78431374)
@@ -43,3 +44,7 @@ theme_override_font_sizes/font_size = 20
 text = "Oxygen"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBEAT" type="AudioStreamPlayer" parent="." unique_id=1327229289]
+stream = ExtResource("3_7vkb4")
+parameters/looping = true
