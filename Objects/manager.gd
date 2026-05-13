@@ -15,12 +15,13 @@ extends Node
 @onready var rwind: AudioStreamPlayer3D = $"../RandomSFX/RWIND"
 @onready var morse: AudioStreamPlayer3D = $"../RandomSFX/Morse"
 
-var random_sfx = [boom_exp, footsteps, sonar, rwind, morse]
+@export var random_sfx: Array[AudioStreamPlayer3D] = []
 
 var normal_color_texture = load("res://Assets/LUTs/normColor.tres")
 var crazy_color_texture = load("res://Assets/LUTs/Cube/16-8bit.png")
 var gas_leaking: bool = false
 var door_open: bool = false
+var power_out: bool = false
 
 var valve_times_turned: int = 0
 var turns_needed: int
@@ -56,6 +57,8 @@ func _physics_process(_delta: float) -> void:
 		player.speed = 2.5
 		if not $"../Objects/GasValve/GasHiss".playing:
 			$"../Objects/GasValve/GasHiss".play()
+			if !power_out:
+				$"../anims".play("alarm")
 			var tween = create_tween()
 			tween.tween_property(self, "gas_strength", 1.0, 5.0).from(0.05)
 			while gas_leaking:
@@ -240,8 +243,20 @@ func _on_button_pressed():
 func turn_gen_off():
 	$"../GeneratorHum".stream_paused = true
 	$"../OmniLight3D".hide()
+	power_out = true
+	$"../generator/Main/PowerOFF".play()
 	
 func turn_gen_on():
 	$"../GeneratorHum".stream_paused = false
 	$"../OmniLight3D".show()
 	random_generator_time()
+	power_out = false
+
+
+func _on_random_sfx_timer_timeout() -> void:
+	if random_sfx.size() > 0:
+		var random_stream = random_sfx.pick_random()
+		
+		random_stream.play()
+	else:
+		return

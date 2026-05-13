@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b23f8qsa36p8l" path="res://Assets/wood_crate.blend" id="21_1vqrx"]
 [ext_resource type="Texture2D" uid="uid://ctof5ym6uq31j" path="res://Assets/textures/256 palette.png" id="21_hnp7j"]
 [ext_resource type="PackedScene" uid="uid://bfm34difb61fb" path="res://UI/keypad_face.tscn" id="21_mjpkp"]
+[ext_resource type="AudioStream" uid="uid://6prspprt6np7" path="res://Assets/alarm.mp3" id="21_qj47t"]
 [ext_resource type="PackedScene" uid="uid://dcvn88t034et0" path="res://Assets/ship.blend" id="21_rcrf8"]
 [ext_resource type="AudioStream" uid="uid://cotassu0a0q7l" path="res://Assets/freesound_community-metallic-door-shut-98740.mp3" id="21_v6svf"]
 [ext_resource type="Environment" uid="uid://b0kal7e6gka8y" path="res://Misc/Environments/dark1.tres" id="23_wfxp5"]
@@ -27,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://d2gensrlhlock" path="res://Assets/freesoundfx-electric-generators-loopable-388827.mp3" id="27_mubu7"]
 [ext_resource type="AudioStream" uid="uid://dhba5vsmx1awg" path="res://Assets/freesound_community-correct-choice-43861.mp3" id="27_sn4iy"]
 [ext_resource type="PackedScene" uid="uid://jbir7tcr4obv" path="res://Misc/toxic_gas_vfx.tscn" id="28_sn4iy"]
+[ext_resource type="AudioStream" uid="uid://ct6xknyiglkra" path="res://Assets/freesound_community-power-down-89297.mp3" id="30_c7p1l"]
 [ext_resource type="PackedScene" uid="uid://bxboug4fdxfhs" path="res://Assets/generator.blend" id="30_mpy1j"]
 [ext_resource type="AudioStream" uid="uid://d0fy8mqx5e6q3" path="res://Assets/metal-hit.mp3" id="31_dlf6k"]
 [ext_resource type="AudioStream" uid="uid://dfuwy7osex2rc" path="res://Assets/freesound_community-geiger-counter-clicks-low-25832.mp3" id="32_dlf6k"]
@@ -411,6 +413,30 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ship/E-Light/AudioStreamPlayer3D:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ship/E-Light/Em-Light:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b3802"]
 resource_name = "TurnValve"
@@ -439,6 +465,35 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_c7p1l"]
+resource_name = "alarm"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship/E-Light/AudioStreamPlayer3D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ship/E-Light/Em-Light:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.6, 0.9, 1.1, 1.5, 1.6, 1.9, 2.1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_fevyy"]
@@ -479,6 +534,7 @@ _data = {
 &"PressOxygenButton": SubResource("Animation_k12tt"),
 &"RESET": SubResource("Animation_fdnlq"),
 &"TurnValve": SubResource("Animation_b3802"),
+&"alarm": SubResource("Animation_c7p1l"),
 &"close_mail_door": SubResource("Animation_fevyy"),
 &"open_mail_door": SubResource("Animation_hibaj"),
 &"player_fall": SubResource("Animation_mubu7")
@@ -536,8 +592,9 @@ data = PackedVector3Array(-0.3, 0.13333333, 1, -0.3, 0.39999998, 0.9, -0.3, 0.39
 
 [node name="Main" type="Node3D" unique_id=815334071]
 
-[node name="Manager" type="Node" parent="." unique_id=55791227]
+[node name="Manager" type="Node" parent="." unique_id=55791227 node_paths=PackedStringArray("random_sfx")]
 script = ExtResource("1_mqv1q")
+random_sfx = [NodePath("../RandomSFX/BoomExp"), NodePath("../RandomSFX/Footsteps"), NodePath("../RandomSFX/Sonar"), NodePath("../RandomSFX/RWIND"), NodePath("../RandomSFX/Morse")]
 
 [node name="DesTimer" type="Timer" parent="Manager" unique_id=350128841]
 unique_name_in_owner = true
@@ -550,6 +607,10 @@ wait_time = 20.0
 one_shot = true
 
 [node name="OxygenMeterTimer" type="Timer" parent="Manager" unique_id=815615815]
+
+[node name="RandomSFXTimer" type="Timer" parent="Manager" unique_id=1673436470]
+wait_time = 35.0
+autostart = true
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=88408684]
 script = ExtResource("3_v6svf")
@@ -694,6 +755,14 @@ transparent_bg = true
 
 [node name="KeypadFace" parent="ship/KeyPad/Sprite3D/SubViewport" unique_id=37577323 instance=ExtResource("21_mjpkp")]
 
+[node name="Em-Light" type="OmniLight3D" parent="ship/E-Light" parent_id_path=PackedInt32Array(1661791364, 645194262) index="0" unique_id=1877246525]
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 10.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ship/E-Light" parent_id_path=PackedInt32Array(1661791364, 645194262) index="1" unique_id=1645581358]
+stream = ExtResource("21_qj47t")
+
 [node name="KeyPad2" type="MeshInstance3D" parent="ship" unique_id=1085185449]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9871464, 1.415906, 8.899651)
 mesh = SubResource("ArrayMesh_bs5ri")
@@ -754,6 +823,9 @@ stream = ExtResource("27_sn4iy")
 [node name="generator" parent="." unique_id=777464550 instance=ExtResource("30_mpy1j")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -22.316994, 3.1197667, 26.145073)
 
+[node name="PowerOFF" type="AudioStreamPlayer3D" parent="generator/Main" parent_id_path=PackedInt32Array(777464550, 610441623) index="1" unique_id=1696065757]
+stream = ExtResource("30_c7p1l")
+
 [node name="MtealHit" type="AudioStreamPlayer3D" parent="generator" unique_id=740307019]
 stream = ExtResource("31_dlf6k")
 
@@ -799,11 +871,12 @@ volume_db = 20.0
 [node name="Morse" type="AudioStreamPlayer3D" parent="RandomSFX" unique_id=622563905]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.92148, 2.6931155, 7.332494)
 stream = ExtResource("37_5ac1p")
-volume_db = -10.0
+volume_db = -15.0
 
 [connection signal="timeout" from="Manager/DesTimer" to="Manager" method="_on_des_timer_timeout"]
 [connection signal="timeout" from="Manager/LightsTimer" to="Manager" method="_on_lights_timer_timeout"]
 [connection signal="timeout" from="Manager/OxygenMeterTimer" to="Manager" method="_on_oxygen_meter_timer_timeout"]
+[connection signal="timeout" from="Manager/RandomSFXTimer" to="Manager" method="_on_random_sfx_timer_timeout"]
 [connection signal="animation_finished" from="anims" to="Manager" method="_on_anims_animation_finished"]
 
 [editable path="Player"]
