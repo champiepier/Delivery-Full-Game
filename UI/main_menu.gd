@@ -6,11 +6,20 @@ var menu_images = [
 	preload("res://Assets/Art/DeliveryMM-3.jpg")	
 ]
 
+var menu_themes = [
+	# preload("res://Assets/MenuTheme1.mp3"),
+	preload("res://Assets/MenuThemeAmbient.mp3"),
+	# preload("res://Assets/MenuThemeOther.mp3")
+]
+
 @onready var bg_image: TextureRect = $MarginContainer/BG_IMAGE
+@onready var menu_theme: AudioStreamPlayer = $MenuTheme
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bg_image.texture = menu_images.pick_random()
+	menu_theme.stream = menu_themes.pick_random()
+	menu_theme.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

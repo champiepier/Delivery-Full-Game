@@ -6,8 +6,8 @@
 [ext_resource type="FontFile" uid="uid://vq5gwqf8ry56" path="res://Assets/Fonts/Red Rose/RedRose-Medium.ttf" id="3_ev3b6"]
 [ext_resource type="FontFile" uid="uid://b6gliv8i1upw0" path="res://Assets/Fonts/Red Rose/RedRose-Regular.ttf" id="4_k0a0m"]
 [ext_resource type="PackedScene" uid="uid://d16tvu2fbgftn" path="res://UI/controls_setting.tscn" id="5_2mudq"]
-[ext_resource type="AudioStream" uid="uid://ded5upb5hsfng" path="res://Assets/freesoundsxx-button-press-beep-269718.mp3" id="7_ev3b6"]
 [ext_resource type="PackedScene" uid="uid://cy6gnn5urt42f" path="res://UI/credits.tscn" id="7_k0a0m"]
+[ext_resource type="AudioStream" uid="uid://4y6bfyvgymne" path="res://Assets/MenuThemeOther.mp3" id="8_k0a0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ctay"]
 bg_color = Color(0.13213876, 0.16470721, 0.17866698, 1)
@@ -143,8 +143,9 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="Buttonpress" type="AudioStreamPlayer" parent="." unique_id=2099437999]
-stream = ExtResource("7_ev3b6")
+[node name="MenuTheme" type="AudioStreamPlayer" parent="." unique_id=2099437999]
+stream = ExtResource("8_k0a0m")
+parameters/looping = true
 
 [connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

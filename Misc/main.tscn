@@ -211,6 +211,38 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_5ac1p"]
+resource_name = "ElevatorDOWN"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship/Elevator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vgk6f"]
+resource_name = "ElevatorUP"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship/Elevator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.5, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_6iyac"]
 resource_name = "Lights Flicker"
 length = 2.5
@@ -437,6 +469,18 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ship/Elevator:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.5, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_b3802"]
 resource_name = "TurnValve"
@@ -528,6 +572,8 @@ _data = {
 &"Close_Fridge": SubResource("Animation_wy3ni"),
 &"DoorOpen": SubResource("Animation_hnp7j"),
 &"DoorsShut": SubResource("Animation_mqv1q"),
+&"ElevatorDOWN": SubResource("Animation_5ac1p"),
+&"ElevatorUP": SubResource("Animation_vgk6f"),
 &"Lights Flicker": SubResource("Animation_6iyac"),
 &"LookAtKeypad": SubResource("Animation_mjpkp"),
 &"Open_Fridge": SubResource("Animation_wfxp5"),
@@ -703,7 +749,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.10683, 3.1682734, 14.3783
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.50683, 3.7682734, 19.478395)
 
 [node name="Player" parent="." unique_id=1698205497 instance=ExtResource("19_qj47t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.13881, 4.775502, 17.759706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.33881, 4.875502, 16.359707)
 
 [node name="CameraPivot" parent="Player" index="2" unique_id=339159392]
 transform = Transform3D(0.3666474, 0.37755093, -0.8503087, 0, 0.9139568, 0.40581173, 0.9303601, -0.14878981, 0.33509988, 0, 0.6123204, 0)
@@ -734,19 +780,19 @@ size = Vector2i(640, 480)
 
 [node name="OxygenBar" parent="OxygenLevel/SubViewport" unique_id=2112417945 instance=ExtResource("6_mjpkp")]
 
-[node name="ship" parent="." unique_id=1661791364 instance=ExtResource("21_rcrf8")]
+[node name="ship" parent="." unique_id=1191606304 instance=ExtResource("21_rcrf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.301579, 3.1134958, 16.472282)
 
-[node name="Door1" parent="ship" index="10" unique_id=569086502]
+[node name="Door1" parent="ship" index="10" unique_id=474255119]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, -2.5, 1, 7.3)
 
-[node name="Door2" parent="ship" index="11" unique_id=2126805535]
+[node name="Door2" parent="ship" index="11" unique_id=1338165470]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.1, 2.5, 1, 7.3)
 
-[node name="WindowGlass" parent="ship" index="16" unique_id=1702558360]
+[node name="WindowGlass" parent="ship" index="16" unique_id=2006165748]
 transparency = 0.25
 
-[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(1661791364, 231292993) index="1" unique_id=1618365369]
+[node name="Sprite3D" type="Sprite3D" parent="ship/KeyPad" parent_id_path=PackedInt32Array(1191606304, 867843012) index="1" unique_id=1618365369]
 transform = Transform3D(-0.22223341, 0, -3.019916e-08, 0, 0.20475, 0, 3.355631e-08, 0, -0.2, 0, 0, 0.89860916)
 texture = SubResource("ViewportTexture_ov7ob")
 
@@ -755,12 +801,12 @@ transparent_bg = true
 
 [node name="KeypadFace" parent="ship/KeyPad/Sprite3D/SubViewport" unique_id=37577323 instance=ExtResource("21_mjpkp")]
 
-[node name="Em-Light" type="OmniLight3D" parent="ship/E-Light" parent_id_path=PackedInt32Array(1661791364, 645194262) index="0" unique_id=1877246525]
+[node name="Em-Light" type="OmniLight3D" parent="ship/E-Light" parent_id_path=PackedInt32Array(1191606304, 495457043) index="0" unique_id=1877246525]
 visible = false
 light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ship/E-Light" parent_id_path=PackedInt32Array(1661791364, 645194262) index="1" unique_id=1645581358]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ship/E-Light" parent_id_path=PackedInt32Array(1191606304, 495457043) index="1" unique_id=1645581358]
 stream = ExtResource("21_qj47t")
 
 [node name="KeyPad2" type="MeshInstance3D" parent="ship" unique_id=1085185449]
